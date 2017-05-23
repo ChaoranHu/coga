@@ -3,7 +3,6 @@
 ^\.Rproj\.user$
 ^\.Rhistory$
 \.Rcheck$
-^\.Rhistory$
 ~$
 ^\.\#
 ^\#
@@ -16,3 +15,4 @@
 ^LICENSE$
 ^TODO\.org$
 ^cran-comments.md$
+^README\.md$

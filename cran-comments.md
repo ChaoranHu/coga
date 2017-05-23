@@ -10,13 +10,14 @@ There were no ERRORs or WARNINGs.
 
 
 There was 1 NOTE:
+
 ```
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Chaoran Hu <chaoran.hu@uconn.edu>’
 
 New submission
 
-Version contains large components (0.0.0.9000)
+Version contains large components (0.1.0.9000)
 ```
 
 ## Downstream dependencies
