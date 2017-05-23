@@ -33,7 +33,7 @@ devtools::install_github("ChaoranHu/coga")
 
 * Use `make clean` to clean generated files and remove installed package `coga` from local library in terminal.
 
-### How do I use?###
+### How do I use? ###
 
 Please read vignette of this package by type `browseVignettes("coga")` in R, which includes several examples.
 
