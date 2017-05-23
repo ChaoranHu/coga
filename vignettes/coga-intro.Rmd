@@ -19,7 +19,7 @@ if (!requireNamespace("microbenchmark", quietly = TRUE)) {
 
 # Introduction
 
-This vignette is the description of algorithm in this package and the correctness check via simulation experiment. The algorithm of this package comes from Moschopoulos Peter G. (1985).
+This vignette is the description of algorithm in this package and the correctness check via simulation experiment. The algorithm of this package comes from Moschopoulos Peter G. (1985). This vignette also give some useful informations.
 
 # Algorithm
 
@@ -76,6 +76,10 @@ microbenchmark::microbenchmark(
     coga:::pcoga.R(grid, shape=c(3,4,5), rate=c(2,3,4))
 )
 ```
+
+# Parameters Recycling
+
+Please take care of that `dcoga`, and `pcoga` in this package can handle different lengths of parameter `shape` and `rate` by recycling shorter parameter. That means that `dcoga(3, c(2,3), c(3,4,5,3,4))` and `dcoga(3, c(2,3,2,3,2), c(3,4,5,3,4))` will give the same result.
 
 # References
 

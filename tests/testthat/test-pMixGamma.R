@@ -30,4 +30,8 @@ test_that("handle recycle", {
                  pcoga(4, shape=c(2, 2, 2), rate=c(4, 5, 6)))
     expect_equal(pcoga(4, shape=c(2, 3, 4), rate=c(4, 4, 4)),
                  pcoga(4, shape=c(2, 3, 4), rate=c(4)))
+    expect_equal(pcoga(4, shape=c(2, 3, 2, 3), rate=c(4, 2, 5, 3)),
+                 pcoga(4, shape=c(2, 3), rate=c(4, 2, 5, 3)))
+    expect_equal(pcoga(4, shape=c(2, 3, 4, 6, 7), rate=c(4, 3)),
+                 pcoga(4, shape=c(2, 3, 4, 6, 7), rate=c(4, 3, 4, 3, 4)))
 })

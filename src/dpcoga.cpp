@@ -42,11 +42,30 @@ double get_next_delta(NumericVector delta, NumericVector lgam) {
   return out / n;
 }
 
+/* old recycling
 NumericVector makeup(NumericVector x, NumericVector y) {
   // make up x to y
   double xvalue = x[0];
   NumericVector xx(y.size(), xvalue);
   return xx;
+}
+*/
+
+// do recycling x to follw y's size
+NumericVector recycling(NumericVector x, NumericVector y) {
+  // recycling x to y
+  int nx = x.size();
+  int ny = y.size();
+  int mx = x.size();
+  while(TRUE) {
+    for(int i = 0; i < nx; ++i) {
+      x.push_back(x[i]);
+      mx = x.size();
+      if (mx == ny) break;
+    }
+    if (mx == ny) break;
+  }
+  return x;
 }
 
 /********************************************************************
@@ -114,14 +133,10 @@ NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate) {
   // input check
   // handle recycle
   if (shape.size() != rate.size()) {
-    if (shape.size() == 1 || rate.size() == 1) {
-      if (shape.size() == 1) {
-	shape = makeup(shape, rate);
-      } else {
-	rate = makeup(rate, shape);
-      }
+    if (shape.size() < rate.size()) {
+      shape = recycling(shape, rate);
     } else {
-      stop("the length of shape and rate should be equal");
+      rate = recycling(rate, shape);
     }
   }
 
@@ -215,16 +230,13 @@ NumericVector pcoga(NumericVector x, NumericVector shape, NumericVector rate) {
   // input check
   // handle recycle
   if (shape.size() != rate.size()) {
-    if (shape.size() == 1 || rate.size() == 1) {
-      if (shape.size() == 1) {
-	shape = makeup(shape, rate);
-      } else {
-	rate = makeup(rate, shape);
-      }
+    if (shape.size() < rate.size()) {
+      shape = recycling(shape, rate);
     } else {
-      stop("the length of shape and rate should be equal");
+      rate = recycling(rate, shape);
     }
-  }  
+  }
+  
   if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0");
   if (is_true(any(rate <= 0))) stop("all rate should be larger than 0");
   if (is_true(all(shape == 0))) stop("at least one shape should be larger than 0");
