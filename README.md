@@ -22,8 +22,6 @@ This README would normally document whatever steps are necessary to get your app
 
 * Use `library()` to load this package in R.
 
-* Try `github`.
-
 ### Who do I talk to? ###
 
 Chaoran Hu, <chaoran.hu@uconn.edu>
