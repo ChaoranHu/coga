@@ -14,7 +14,12 @@ This README would normally document whatever steps are necessary to get your app
 
 ```
 install.packages("devtools")
+
+## install package without vignette
 devtools::install_github("ChaoranHu/coga")
+
+## install package include vignette
+devtools::install_github("ChaoranHu/coga", build_vignettes = TRUE)
 ```
 
 * Run `library(coga)` to load in R.
