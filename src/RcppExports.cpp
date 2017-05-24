@@ -31,3 +31,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"coga_dcoga", (DL_FUNC) &coga_dcoga, 3},
+    {"coga_pcoga", (DL_FUNC) &coga_pcoga, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_coga(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}

@@ -16,8 +16,6 @@ There was 1 NOTE:
 Maintainer: ‘Chaoran Hu <chaoran.hu@uconn.edu>’
 
 New submission
-
-Version contains large components (0.1.0.9000)
 ```
 
 ## Downstream dependencies
