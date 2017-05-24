@@ -192,28 +192,7 @@ pcoga.R <- Vectorize(pcoga_nvec, vectorize.args="x")
 
 ## ------------------------------------------------------------------------------------
 
-
-### do the simulation of sum of gamma distribution
-
-##' Random Generation for Convolution of Gamma Distributions.
-##'
-##' Random generation function for convolution of gamma distributions. Each gamma distribution
-##' here can have different shape parameters and rate parameters.
-##'
-##' @param n The number of observations, should be larger than 0.
-##' @param shape Numerical vector of shape parameters of every gamma distributions,
-##' all shape parameters >= 0, at least one shape parameter > 0.
-##' @param rate Numerical vector of rate parameters of every gamma distributions.
-##'
-##' @return
-##' The random samples from given convolution of gamma distributions.
-##' 
-##' @examples
-##' rcoga(10, c(2,0,0), c(2,3,1))
-##' 
-##' @aliases rcovgam
-##' @author Chaoran Hu
-##'
+##' @rdname dcoga
 ##' @export
 rcoga <- function(n, shape, rate) {
     stopifnot(length(shape) == length(rate))
