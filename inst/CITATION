@@ -7,10 +7,10 @@ citEntry(entry = "Manual",
                              as.person("Jun Yan")),
          Note = "R package version 0.1.0",
          Year =	"2017",
-         Url = "https://bitbucket.org/chaoranhu/coga",
+         Url = "https://github.com/ChaoranHu/coga",
          
          textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2017). coga:",
                              "A Calculation of Convolution of Gamma Distributions.",
                              "R package version 0.1.0.",
-                             "https://bitbucket.org/chaoranhu/coga")
+                             "https://github.com/ChaoranHu/coga")
 )
