@@ -1,5 +1,7 @@
 # README #
 
+[![Build Status](https://travis-ci.org/ChaoranHu/coga.svg?branch=master)](https://travis-ci.org/ChaoranHu/coga)
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this R package for? ###
