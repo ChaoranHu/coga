@@ -1,3 +1,5 @@
+// [[Rcpp::interfaces(r, cpp)]]
+
 #include <Rcpp.h>
 using namespace Rcpp;
 
@@ -143,8 +145,10 @@ NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate) {
   // handle recycle
   if (shape.size() != rate.size()) {
     if (shape.size() < rate.size()) {
+      if (rate.size() % shape.size() != 0) warning("number of rate is not a multiple of shape.");
       shape = recycling(shape, rate);
     } else {
+      if (shape.size() % rate.size() != 0) warning("number of shape is not a multiple of rate.");
       rate = recycling(rate, shape);
     }
   }
@@ -211,8 +215,10 @@ NumericVector pcoga(NumericVector x, NumericVector shape, NumericVector rate) {
   // handle recycle
   if (shape.size() != rate.size()) {
     if (shape.size() < rate.size()) {
+      if (rate.size() % shape.size() != 0) warning("number of rate is not a multiple of shape.");
       shape = recycling(shape, rate);
     } else {
+      if (shape.size() % rate.size() != 0) warning("number of shape is not a multiple of rate.");
       rate = recycling(rate, shape);
     }
   }

@@ -61,5 +61,4 @@ $(vignettes): $(rmd)
 
 .PHONY: clean
 clean:
-	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html;\
-	Rscript -e "remove.packages(\"$(pkg)\");";
+	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html

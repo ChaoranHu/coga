@@ -52,3 +52,7 @@ pcoga <- function(x, shape, rate) {
     .Call('coga_pcoga', PACKAGE = 'coga', x, shape, rate)
 }
 
+# Register entry points for exported C++ functions
+methods::setLoadAction(function(ns) {
+    .Call('coga_RcppExport_registerCCallable', PACKAGE = 'coga')
+})

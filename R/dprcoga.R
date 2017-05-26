@@ -195,7 +195,12 @@ pcoga.R <- Vectorize(pcoga_nvec, vectorize.args="x")
 ##' @rdname dcoga
 ##' @export
 rcoga <- function(n, shape, rate) {
-    stopifnot(length(shape) == length(rate))
+    if (length(shape) != length(rate)) {
+        param.save <- cbind(shape, rate)
+        shape <- param.save[,1]
+        rate <- param.save[,2]
+    }
+    
     stopifnot(shape >= 0, rate > 0)
     if (prod(shape == 0)) stop("At least one shape parameter should be larger than 0")
     dim <- length(shape)
