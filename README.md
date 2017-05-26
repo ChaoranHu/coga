@@ -29,7 +29,7 @@ or
 install.packages("coga")
 ```
 
-Note: Both ways need your computer have development tools. This package includes Cpp and C codes, so you need a CPP compiler (for mac, you can use Xcode, which can be installed from Apple Store). You may also need update your `R` in order to use `install.packages("coga")` way to install.
+Note: The first way need your computer have development tools, but can help you follow the newest version from my github. This package includes Cpp and C codes, so you need a CPP compiler (for mac, you can use Xcode, which can be installed from Apple Store). If you do not have these tools, please use second way to install from CRAN.
 
 * Run `library(coga)` to load in R.
 
