@@ -23,13 +23,14 @@ devtools::install_github("ChaoranHu/coga")
 ## install package include vignette
 devtools::install_github("ChaoranHu/coga", build_vignettes = TRUE)
 ```
+
 or
 
 ```
 install.packages("coga")
 ```
 
-Note: The first way need your computer have development tools, but can help you follow the newest version from my github. This package includes Cpp and C codes, so you need a CPP compiler (for mac, you can use Xcode, which can be installed from Apple Store). If you do not have these tools, please use second way to install from CRAN.
+Note: The first way need your computer have development tools, but can help you follow the newest version from my github. This package includes Cpp and C codes, so you need a CPP compiler (for mac, you can use Xcode, which can be installed from Apple Store). If you do not have these tools, please use second way to install from CRAN.
 
 * Run `library(coga)` to load in R.
 
