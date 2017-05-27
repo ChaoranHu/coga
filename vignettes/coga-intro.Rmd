@@ -77,6 +77,8 @@ microbenchmark::microbenchmark(
 )
 ```
 
+Note: In this example, 'dcoga.R', and 'pcoga.R' are the R version functions for density, and distribution functions of convolution of gamma distributions. We do not put these two R functions as export functions in package 'coga', but you can still use them by 'coga:::dcoga', and 'coga:::pcoga'.
+
 # Parameters Recycling
 
 Please take care of that `dcoga`, and `pcoga` in this package can handle different lengths of parameter `shape` and `rate` by recycling shorter parameter. That means that `dcoga(3, c(2,3), c(3,4,5,3,4))` and `dcoga(3, c(2,3,2,3,2), c(3,4,5,3,4))` will give the same result.

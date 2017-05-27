@@ -8,7 +8,7 @@
 
 ## MINOR CHANGES
 
-* Updated CRAN URL and BugReport URL to github.
+* Updated CRAN URL and BugReport URL from bitbucket to github.
 
 
 
