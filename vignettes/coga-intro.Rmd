@@ -1,5 +1,5 @@
 ---
-title: "R package coga: The Description of Algorithm and Correctness"
+title: "R package coga: Convolution of Gamma Distributions"
 author: "Chaoran Hu"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -19,7 +19,7 @@ if (!requireNamespace("microbenchmark", quietly = TRUE)) {
 
 # Introduction
 
-This vignette is the description of algorithm in this package and the correctness check via simulation experiment. The algorithm of this package comes from Moschopoulos Peter G. (1985). This vignette also give some useful informations.
+This R package coga can help you to calculate density and distribution function of convolution of gamma distributions. The convolution of gamma distributions is the sum of series of independent gamma distributions. The algorithm of this package comes from Moschopoulos Peter G. (1985). The R coda in this vignette also can be considered as useful examples.
 
 # Algorithm
 
@@ -81,7 +81,7 @@ Note: In this example, 'dcoga.R', and 'pcoga.R' are the R version functions for 
 
 # Parameters Recycling
 
-Please take care of that `dcoga`, and `pcoga` in this package can handle different lengths of parameter `shape` and `rate` by recycling shorter parameter. That means that `dcoga(3, c(2,3), c(3,4,5,3,4))` and `dcoga(3, c(2,3,2,3,2), c(3,4,5,3,4))` will give the same result.
+Please take care of that R functions `dcoga`, `pcoga`, and `rcoga` in this package can handle different lengths of parameter `shape` and `rate` by recycling shorter parameter. That means that `dcoga(3, c(2,3), c(3,4,5,3,4))` and `dcoga(3, c(2,3,2,3,2), c(3,4,5,3,4))` will give the same result. If the length of the longer parameter is not a multiple of the length of shorter one, these three R functions will give a **Warning** message.
 
 # References
 

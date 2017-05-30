@@ -10,6 +10,7 @@
 
 * Updated CRAN URL and BugReport URL from bitbucket to github.
 
+* Updated Vignette.
 
 
 # CHANGES IN coga VERSION 0.1.0
