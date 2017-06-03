@@ -74,7 +74,6 @@ NumericVector recycling(NumericVector x, NumericVector y) {
 *********************************************************************/
 
 // non vectorize version
-// [[Rcpp::export]]
 double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
   if (x <= 0) return 0;
   double beta1 = min(beta);
@@ -184,7 +183,6 @@ NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate) {
 *************************************************************************/
 
 // non vectorize version
-// [[Rcpp::export]]
 double pcoga_nv(double x, NumericVector alpha, NumericVector beta) {
   if (x <= 0) return 0;
   double beta1 = min(beta);

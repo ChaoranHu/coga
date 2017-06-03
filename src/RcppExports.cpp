@@ -8,38 +8,6 @@
 
 using namespace Rcpp;
 
-// dcoga_nv
-double dcoga_nv(double x, NumericVector alpha, NumericVector beta);
-static SEXP coga_dcoga_nv_try(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
-    rcpp_result_gen = Rcpp::wrap(dcoga_nv(x, alpha, beta));
-    return rcpp_result_gen;
-END_RCPP_RETURN_ERROR
-}
-RcppExport SEXP coga_dcoga_nv(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
-    SEXP rcpp_result_gen;
-    {
-        Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(coga_dcoga_nv_try(xSEXP, alphaSEXP, betaSEXP));
-    }
-    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
-    if (rcpp_isInterrupt_gen) {
-        UNPROTECT(1);
-        Rf_onintr();
-    }
-    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
-    if (rcpp_isError_gen) {
-        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
-        UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
-    }
-    UNPROTECT(1);
-    return rcpp_result_gen;
-}
 // dcoga
 NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate);
 static SEXP coga_dcoga_try(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
@@ -57,38 +25,6 @@ RcppExport SEXP coga_dcoga(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
         rcpp_result_gen = PROTECT(coga_dcoga_try(xSEXP, shapeSEXP, rateSEXP));
-    }
-    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
-    if (rcpp_isInterrupt_gen) {
-        UNPROTECT(1);
-        Rf_onintr();
-    }
-    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
-    if (rcpp_isError_gen) {
-        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
-        UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
-    }
-    UNPROTECT(1);
-    return rcpp_result_gen;
-}
-// pcoga_nv
-double pcoga_nv(double x, NumericVector alpha, NumericVector beta);
-static SEXP coga_pcoga_nv_try(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
-    rcpp_result_gen = Rcpp::wrap(pcoga_nv(x, alpha, beta));
-    return rcpp_result_gen;
-END_RCPP_RETURN_ERROR
-}
-RcppExport SEXP coga_pcoga_nv(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
-    SEXP rcpp_result_gen;
-    {
-        Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(coga_pcoga_nv_try(xSEXP, alphaSEXP, betaSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -141,9 +77,7 @@ RcppExport SEXP coga_pcoga(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
 static int coga_RcppExport_validate(const char* sig) { 
     static std::set<std::string> signatures;
     if (signatures.empty()) {
-        signatures.insert("double(*dcoga_nv)(double,NumericVector,NumericVector)");
         signatures.insert("NumericVector(*dcoga)(NumericVector,NumericVector,NumericVector)");
-        signatures.insert("double(*pcoga_nv)(double,NumericVector,NumericVector)");
         signatures.insert("NumericVector(*pcoga)(NumericVector,NumericVector,NumericVector)");
     }
     return signatures.find(sig) != signatures.end();
@@ -151,18 +85,14 @@ static int coga_RcppExport_validate(const char* sig) {
 
 // registerCCallable (register entry points for exported C++ functions)
 RcppExport SEXP coga_RcppExport_registerCCallable() { 
-    R_RegisterCCallable("coga", "coga_dcoga_nv", (DL_FUNC)coga_dcoga_nv_try);
     R_RegisterCCallable("coga", "coga_dcoga", (DL_FUNC)coga_dcoga_try);
-    R_RegisterCCallable("coga", "coga_pcoga_nv", (DL_FUNC)coga_pcoga_nv_try);
     R_RegisterCCallable("coga", "coga_pcoga", (DL_FUNC)coga_pcoga_try);
     R_RegisterCCallable("coga", "coga_RcppExport_validate", (DL_FUNC)coga_RcppExport_validate);
     return R_NilValue;
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"coga_dcoga_nv", (DL_FUNC) &coga_dcoga_nv, 3},
     {"coga_dcoga", (DL_FUNC) &coga_dcoga, 3},
-    {"coga_pcoga_nv", (DL_FUNC) &coga_pcoga_nv, 3},
     {"coga_pcoga", (DL_FUNC) &coga_pcoga, 3},
     {"coga_RcppExport_registerCCallable", (DL_FUNC) &coga_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}

@@ -24,25 +24,6 @@ namespace coga {
         }
     }
 
-    inline double dcoga_nv(double x, NumericVector alpha, NumericVector beta) {
-        typedef SEXP(*Ptr_dcoga_nv)(SEXP,SEXP,SEXP);
-        static Ptr_dcoga_nv p_dcoga_nv = NULL;
-        if (p_dcoga_nv == NULL) {
-            validateSignature("double(*dcoga_nv)(double,NumericVector,NumericVector)");
-            p_dcoga_nv = (Ptr_dcoga_nv)R_GetCCallable("coga", "coga_dcoga_nv");
-        }
-        RObject rcpp_result_gen;
-        {
-            RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_dcoga_nv(Rcpp::wrap(x), Rcpp::wrap(alpha), Rcpp::wrap(beta));
-        }
-        if (rcpp_result_gen.inherits("interrupted-error"))
-            throw Rcpp::internal::InterruptedException();
-        if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
-        return Rcpp::as<double >(rcpp_result_gen);
-    }
-
     inline NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate) {
         typedef SEXP(*Ptr_dcoga)(SEXP,SEXP,SEXP);
         static Ptr_dcoga p_dcoga = NULL;
@@ -60,25 +41,6 @@ namespace coga {
         if (rcpp_result_gen.inherits("try-error"))
             throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<NumericVector >(rcpp_result_gen);
-    }
-
-    inline double pcoga_nv(double x, NumericVector alpha, NumericVector beta) {
-        typedef SEXP(*Ptr_pcoga_nv)(SEXP,SEXP,SEXP);
-        static Ptr_pcoga_nv p_pcoga_nv = NULL;
-        if (p_pcoga_nv == NULL) {
-            validateSignature("double(*pcoga_nv)(double,NumericVector,NumericVector)");
-            p_pcoga_nv = (Ptr_pcoga_nv)R_GetCCallable("coga", "coga_pcoga_nv");
-        }
-        RObject rcpp_result_gen;
-        {
-            RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga_nv(Rcpp::wrap(x), Rcpp::wrap(alpha), Rcpp::wrap(beta));
-        }
-        if (rcpp_result_gen.inherits("interrupted-error"))
-            throw Rcpp::internal::InterruptedException();
-        if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
-        return Rcpp::as<double >(rcpp_result_gen);
     }
 
     inline NumericVector pcoga(NumericVector x, NumericVector shape, NumericVector rate) {
