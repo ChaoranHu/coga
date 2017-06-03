@@ -1,6 +1,6 @@
 ## Test enviroments
 
-* local macOS 10.12.4 install, R 3.3.1
+* local macOS 10.12.4 install, R 3.4.0
 
 * win-builder (devel and release)
 
@@ -13,9 +13,9 @@ There was 1 NOTE:
 
 ```
 * checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Chaoran Hu <chaoran.hu@uconn.edu>’
+Maintainer: â€˜Chaoran Hu <chaoran.hu@uconn.edu>â€™
 
-New submission
+Version contains large components (0.1.0.9000)
 ```
 
 ## Downstream dependencies

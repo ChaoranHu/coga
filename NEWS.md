@@ -2,7 +2,7 @@
 
 ## MAJOR CHANGES
 
-* Create 'coga.h' to make CPP code can be called directly.
+* Create 'coga.h' and 'coga_RcppExports.h' to make C++ code can be called directly.
 
 * Modified parameter shape and rate recycling work. When the length of one parameter is not a multiple of another, `dcoga`, `pcoga`, and `rcoga` will return a warning.
 
