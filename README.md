@@ -6,7 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this R package for? ###
 
-* A calculation of convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`).
+* A calculation of convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`). Also, this package provide functions, `dcoga2dim` and `pcoga2dim`, to calculate density and distribution function of convolution of *two* gamma distributions, which are much faster than general functions.
 
 * Version: 0.1.0.9000
 
@@ -59,3 +59,5 @@ Chaoran Hu, <chaoran.hu@uconn.edu>
 ### Reference ###
 
 [1] Moschopoulos, Peter G. "The distribution of the sum of independent gamma random variables." Annals of the Institute of Statistical Mathematics 37.1 (1985): 541-544.
+
+[2] Mathai, A.M.: Storage capacity of a dam with gamma type inputs. Ann. Inst. Statist.Math. 34, 591-597 (1982).
