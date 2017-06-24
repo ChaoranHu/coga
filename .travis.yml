@@ -7,7 +7,7 @@ r:
   - devel
 
 apt_packages:
-  -libgsl-dev
+  - libgsl-dev
 
 r_github_packages:
   - jimhester/covr
