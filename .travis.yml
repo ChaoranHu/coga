@@ -16,7 +16,7 @@ install:
   # we can install these packages as prebuild apt-get binaries which is faster
   - ./travis-tool.sh install_aptget libgsl0-dev r-cran-rcpp
   # these are installed from CRAN in source form
-  - ./travis-tool.sh install_r RcppGSL
+  - ./travis-tool.sh install_r RcppGSL knitr rmarkdown testthat microbenchmark
 
 script: 
   - ./travis-tool.sh run_tests
