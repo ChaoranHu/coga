@@ -19,5 +19,6 @@
 ##' @name coga
 ##' @useDynLib coga
 ##' @importFrom Rcpp sourceCpp
+##' @importFrom Rcpp evalCpp
 
 NULL

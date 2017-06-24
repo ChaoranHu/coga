@@ -1,11 +1,14 @@
-// [[Rcpp::interfaces(r, cpp)]]
-
+// [[Rcpp::interfaces(r, cpp)]]
+// [[Rcpp::depends(RcppGSL)]]
 #include <Rcpp.h>
+#include <RcppGSL.h>
+#include <gsl/gsl_sf_hyperg.h>
+
 using namespace Rcpp;
 
 // [[Rcpp::export]]
 double dcoga2dim_nv(double x, double shape1, double shape2,
-		 double rate1, double rate2) {
+		       double rate1, double rate2) {
   // transfer rate to scale
   double beta1 = 1 / rate1;
   double beta2 = 1 / rate2;
@@ -23,23 +26,11 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   }
 
   double lgam = shape1 + shape2;
-  double cart = 0;
-  double result = 0;
-  int r = 0;
-  
-  while (TRUE) {
-    cart = R::choose(shape2 + r - 1, r) / exp(R::lgammafn(lgam + r));
-    cart *= pow(x * (1/beta1 - 1/beta2), r);
-    if (cart == R_PosInf || R_IsNaN(cart)) {
-      warning("Inf or NaN happened, not converge!");
-      break;
-    }
-    result += cart;
-    if (cart == 0) break;
-    r++;
-  }
-  result *= pow(x, lgam - 1) * exp(-x / beta1);
+  double parx = (1/beta1 - 1/beta2) * x;
+  double result = pow(x, lgam - 1) * exp(-x / beta1);
+  result *= gsl_sf_hyperg_1F1(shape2, lgam, parx);
   result /= pow(beta1, shape1) * pow(beta2, shape2);
+  result /= exp(R::lgammafn(lgam));
   return result;
 }
 
@@ -118,19 +109,28 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
   }
 
   double lgam = shape1 + shape2;
-  double cart = 0;
-  double result = 0;
+  double sun = 1 - beta1 / beta2;
+  double moon = exp(-x/beta1) * pow(x/beta1, lgam);
+  
+  
+  double cartB = 1.;
+  double cartD = R::pgamma(x/beta1, lgam, 1, 1, 0);
+  double cartE = 1 / exp(R::lgammafn(lgam + 1));
+  double cart = cartD;
+  double result = 0.;
   int r = 0;
 
   while (TRUE) {
-    cart = R::choose(shape2 + r - 1, r) * pow(1 - beta1/beta2, r);
-    cart *= R::pgamma(x/beta1, lgam + r, 1, 1, 0);
     if (cart == R_PosInf || R_IsNaN(cart)) {
-      warning("Inf or NaN happened, not converge!");
+      //warning("Inf or NaN happened, not converge!");
       break;
     }
     result += cart;
     if (cart == 0) break;
+    cartB *= sun * (shape2 + r) / (r + 1);
+    cartD -= moon * cartE;
+    cartE *= x / (beta1 * (r + lgam + 1));
+    cart = cartB * cartD;
     r++;
   }
   return result * pow(beta1/beta2, shape2);

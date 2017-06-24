@@ -61,4 +61,4 @@ $(vignettes): $(rmd)
 
 .PHONY: clean
 clean:
-	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html
+	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html config.log config.status src/Makevars
