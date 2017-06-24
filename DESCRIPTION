@@ -22,7 +22,8 @@ Suggests: knitr,
     microbenchmark
 VignetteBuilder: knitr
 Imports: stats,
-    Rcpp
+    Rcpp,
+    RcppGSL
 LinkingTo: Rcpp, RcppGSL
 BugReports: https://github.com/ChaoranHu/coga/issues
 URL: https://github.com/ChaoranHu/coga

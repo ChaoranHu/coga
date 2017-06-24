@@ -1,13 +1,28 @@
-language: r
-cache: packages
-sudo: false
-r:
-  - oldrel
-  - release
-  - devel
+# Sample .travis.yml for R projects.
+#
+# See https://github.com/craigcitro/r-travis
+#     https://github.com/eddelbuettel/r-travis/
 
-r_github_packages:
-  - jimhester/covr
+sudo: required
 
-after_success:
-  - Rscript -e 'covr::codecov()'
+language: c
+
+before_install:
+- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+- chmod 755 ./travis-tool.sh
+- ./travis-tool.sh bootstrap
+
+install:
+- ./travis-tool.sh install_deps
+
+script:
+- ./travis-tool.sh run_tests
+
+after_failure:
+  - ./travis-tool.sh dump_logs
+
+notifications:
+email:
+on_success: change
+on_failure: change
+
