@@ -1,8 +1,27 @@
-language: r
-cache: packages
-sudo: false
-r:
-  - oldrel
-  - release
-  - devel
+# Sample .travis.yml for R projects.
+#
+# See https://github.com/craigcitro/r-travis 
+#     https://github.com/eddelbuettel/r-travis/
 
+sudo: required                                     
+
+language: objective-c
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+
+install:
+  # we can install these packages as prebuild apt-get binaries which is faster
+  - ./travis-tool.sh install_aptget libgsl0-dev r-cran-rcpp
+  # these are installed from CRAN in source form
+  - ./travis-tool.sh install_r RcppGSL
+
+script: 
+  - ./travis-tool.sh run_tests
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
