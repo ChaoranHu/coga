@@ -1,30 +1,13 @@
-# Sample .travis.yml for R projects.
-#
-# See https://github.com/craigcitro/r-travis 
-#     https://github.com/eddelbuettel/r-travis/
+language: r
+cache: packages
+sudo: false
+r:
+  - oldrel
+  - release
+  - devel
 
-sudo: required                                     
+r_github_packages:
+  - jimhester/covr
 
-language: c
-
-before_install:
-  ## PPA for Rcpp and some other packages
-  - sudo add-apt-repository -y ppa:edd/misc
-  ## r-travis by Craig Citro et al
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-
-install:
-  # we can install these packages as prebuild apt-get binaries which is faster
-  - ./travis-tool.sh install_aptget libgsl0-dev r-cran-rcpp r-cran-rcppgsl
-  # these are installed from CRAN in source form
-  - ./travis-tool.sh install_r knitr rmarkdown testthat microbenchmark
-
-script: 
-  - ./travis-tool.sh run_tests
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
+after_success:
+  - Rscript -e 'covr::codecov()'
