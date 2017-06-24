@@ -5,7 +5,7 @@
 
 sudo: required                                     
 
-language: objective-c
+language: c
 
 before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
