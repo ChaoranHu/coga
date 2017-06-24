@@ -34,20 +34,6 @@ Note: The first way need your computer have development tools, but can help you 
 
 * Run `library(coga)` to load in R.
 
-### How do I use Makefile? ###
-
-* Download source form github
-
-* Type `cd path_to_folder_include_package` in terminal.
-
-* Use `make install` to install this package in terminal.
-
-* Use `make build` to bundle this package in terminal.
-
-* Use `make check` to do `R CMD check` for this package in terminal.
-
-* Use `make clean` to clean generated files and remove installed package `coga` from local library in terminal.
-
 ### How do I use? ###
 
 Please read vignette of this package by type `browseVignettes("coga")` in R, which includes several examples.
