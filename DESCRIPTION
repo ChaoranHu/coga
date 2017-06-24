@@ -27,3 +27,5 @@ Imports: stats,
 LinkingTo: Rcpp, RcppGSL
 BugReports: https://github.com/ChaoranHu/coga/issues
 URL: https://github.com/ChaoranHu/coga
+NeedsCompilation: yes
+SystemRequirements: GNU GSL
