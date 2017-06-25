@@ -110,28 +110,24 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
 
   double lgam = shape1 + shape2;
   double sun = 1 - beta1 / beta2;
-  double moon = exp(-x/beta1) * pow(x/beta1, lgam);
-  
   
   double cartB = 1.;
   double cartD = R::pgamma(x/beta1, lgam, 1, 1, 0);
-  double cartE = 1 / exp(R::lgammafn(lgam + 1));
   double cart = cartD;
   double result = 0.;
   int r = 0;
 
   while (TRUE) {
     if (cart == R_PosInf || R_IsNaN(cart)) {
-      //warning("Inf or NaN happened, not converge!");
+      warning("Inf or NaN happened, not converge!");
       break;
     }
     result += cart;
     if (cart == 0) break;
     cartB *= sun * (shape2 + r) / (r + 1);
-    cartD -= moon * cartE;
-    cartE *= x / (beta1 * (r + lgam + 1));
-    cart = cartB * cartD;
     r++;
+    cartD = R::pgamma(x/beta1, lgam + r, 1, 1, 0);
+    cart = cartB * cartD;
   }
   return result * pow(beta1/beta2, shape2);
 }
