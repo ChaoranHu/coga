@@ -15,16 +15,7 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   // handle one shape is 0
   if (shape1 == 0) return R::dgamma(x, shape2, beta2, 0);
   if (shape2 == 0) return R::dgamma(x, shape1, beta1, 0);
-  // determine min beta
-  if (beta1 > beta2) {
-    double beta_cart = beta1;
-    beta1 = beta2;
-    beta2 = beta_cart;
-    double shape_cart = shape1;
-    shape1 = shape2;
-    shape2 = shape_cart;
-  }
-
+  
   double lgam = shape1 + shape2;
   double parx = (1/beta1 - 1/beta2) * x;
   double result = pow(x, lgam - 1) * exp(-x / beta1);
@@ -96,18 +87,8 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
   // handle one shape is 0
   if (shape1 == 0) return R::pgamma(x, shape2, beta2, 1, 0);
   if (shape2 == 0) return R::pgamma(x, shape1, beta1, 1, 0);
+
   // make convergence faster
-
-  // determine min beta
-  if (beta1 > beta2) {
-    double beta_cart = beta1;
-    beta1 = beta2;
-    beta2 = beta_cart;
-    double shape_cart = shape1;
-    shape1 = shape2;
-    shape2 = shape_cart;
-  }
-
   double lgam = shape1 + shape2;
   double sun = 1 - beta1 / beta2;
   
