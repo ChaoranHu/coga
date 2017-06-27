@@ -4,6 +4,8 @@
 
 * win-builder (devel and release)
 
+* ubuntu 12.04 (on travis-ci), (devel, release, and oldrel)
+
 
 ## R CMD check results
 There were no ERRORs or WARNINGs.
