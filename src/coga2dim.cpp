@@ -20,10 +20,10 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   gsl_set_error_handler_off();
   double lgam = shape1 + shape2;
   double parx = (1/beta1 - 1/beta2) * x;
-  double result = pow(x, lgam - 1) * exp(-x / beta1);
+  double result = pow(x, lgam - 1);
   result *= gsl_sf_hyperg_1F1(shape2, lgam, parx);
   result /= pow(beta1, shape1) * pow(beta2, shape2);
-  result /= exp(R::lgammafn(lgam));
+  result /= exp(R::lgammafn(lgam) + (x / beta1));
   return result;
 }
 
