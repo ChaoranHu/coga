@@ -1,4 +1,4 @@
-// [[Rcpp::interfaces(r, cpp)]]
+// [[Rcpp::interfaces(r, cpp)]]
 // [[Rcpp::depends(RcppGSL)]]
 #include <Rcpp.h>
 #include <RcppGSL.h>
@@ -12,10 +12,11 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   // transfer rate to scale
   double beta1 = 1 / rate1;
   double beta2 = 1 / rate2;
+  /*
   // handle one shape is 0
   if (shape1 == 0) return R::dgamma(x, shape2, beta2, 0);
   if (shape2 == 0) return R::dgamma(x, shape1, beta1, 0);
-
+  */
   gsl_set_error_handler_off();
   double lgam = shape1 + shape2;
   double parx = (1/beta1 - 1/beta2) * x;
@@ -85,10 +86,11 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
   // transfer rate to scale
   double beta1 = 1 / rate1;
   double beta2 = 1 / rate2;
+  /*
   // handle one shape is 0
   if (shape1 == 0) return R::pgamma(x, shape2, beta2, 1, 0);
   if (shape2 == 0) return R::pgamma(x, shape1, beta1, 1, 0);
-
+  */
   // make convergence faster
   double lgam = shape1 + shape2;
   double sun = 1 - beta1 / beta2;
@@ -121,7 +123,6 @@ NumericVector pcoga2dim(NumericVector x, double shape1, double shape2,
 			double rate1, double rate2) {
   if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0");
   if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0");
-  if (shape1 == 0 && shape2 == 0) stop("at least one shape should be larger than 0");
 
   int n = x.size();
   NumericVector out(n);
