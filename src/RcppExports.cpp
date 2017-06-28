@@ -145,6 +145,40 @@ RcppExport SEXP coga_pcoga2dim(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEX
     UNPROTECT(1);
     return rcpp_result_gen;
 }
+// pcoga2dim_diff_shape
+double pcoga2dim_diff_shape(double x, double shape1, double shape2, double rate1, double rate2);
+static SEXP coga_pcoga2dim_diff_shape_try(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP rate1SEXP, SEXP rate2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type shape1(shape1SEXP);
+    Rcpp::traits::input_parameter< double >::type shape2(shape2SEXP);
+    Rcpp::traits::input_parameter< double >::type rate1(rate1SEXP);
+    Rcpp::traits::input_parameter< double >::type rate2(rate2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pcoga2dim_diff_shape(x, shape1, shape2, rate1, rate2));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP coga_pcoga2dim_diff_shape(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP rate1SEXP, SEXP rate2SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(coga_pcoga2dim_diff_shape_try(xSEXP, shape1SEXP, shape2SEXP, rate1SEXP, rate2SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 // dcoga
 NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate);
 static SEXP coga_dcoga_try(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
@@ -218,6 +252,7 @@ static int coga_RcppExport_validate(const char* sig) {
         signatures.insert("NumericVector(*dcoga2dim)(NumericVector,double,double,double,double)");
         signatures.insert("double(*pcoga2dim_nv)(double,double,double,double,double)");
         signatures.insert("NumericVector(*pcoga2dim)(NumericVector,double,double,double,double)");
+        signatures.insert("double(*pcoga2dim_diff_shape)(double,double,double,double,double)");
         signatures.insert("NumericVector(*dcoga)(NumericVector,NumericVector,NumericVector)");
         signatures.insert("NumericVector(*pcoga)(NumericVector,NumericVector,NumericVector)");
     }
@@ -230,6 +265,7 @@ RcppExport SEXP coga_RcppExport_registerCCallable() {
     R_RegisterCCallable("coga", "coga_dcoga2dim", (DL_FUNC)coga_dcoga2dim_try);
     R_RegisterCCallable("coga", "coga_pcoga2dim_nv", (DL_FUNC)coga_pcoga2dim_nv_try);
     R_RegisterCCallable("coga", "coga_pcoga2dim", (DL_FUNC)coga_pcoga2dim_try);
+    R_RegisterCCallable("coga", "coga_pcoga2dim_diff_shape", (DL_FUNC)coga_pcoga2dim_diff_shape_try);
     R_RegisterCCallable("coga", "coga_dcoga", (DL_FUNC)coga_dcoga_try);
     R_RegisterCCallable("coga", "coga_pcoga", (DL_FUNC)coga_pcoga_try);
     R_RegisterCCallable("coga", "coga_RcppExport_validate", (DL_FUNC)coga_RcppExport_validate);
@@ -241,6 +277,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"coga_dcoga2dim", (DL_FUNC) &coga_dcoga2dim, 5},
     {"coga_pcoga2dim_nv", (DL_FUNC) &coga_pcoga2dim_nv, 5},
     {"coga_pcoga2dim", (DL_FUNC) &coga_pcoga2dim, 5},
+    {"coga_pcoga2dim_diff_shape", (DL_FUNC) &coga_pcoga2dim_diff_shape, 5},
     {"coga_dcoga", (DL_FUNC) &coga_dcoga, 3},
     {"coga_pcoga", (DL_FUNC) &coga_pcoga, 3},
     {"coga_RcppExport_registerCCallable", (DL_FUNC) &coga_RcppExport_registerCCallable, 0},

@@ -56,6 +56,40 @@ pcoga2dim <- function(x, shape1, shape2, rate1, rate2) {
     .Call('coga_pcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
+#' Recurrence Identity of Shape Parameter for Distribution Function of coga2dim 
+#'
+#' The difference of distribution functions of convolution of two gamma
+#' distributions between consecutive neighbors of shape parameter. This
+#' function can return the value of pcoga2dim(x, shape1, shape2, rate1, rate2)
+#' - pcoga2dim(x, shape1 + 1, shape2, rate1, rate2) with higher efficiency
+#' (this function is much more faster than call pcoga2dim).
+#'
+#' @param x Quantiles.
+#' @param shape1,shape2 Shape parameters of the first and second gamma
+#' distributions, all shape parameters >= 0.
+#' @param rate1,rate2 Rate parameters of the first and second gamma
+#' distributions, all rate parameters > 0.
+#'
+#' @examples
+#' pcoga2dim_diff_shape(3,2,4,5,4)
+#' pcoga2dim(3,2,4,5,4) - pcoga2dim(3,3,4,5,4)
+#'
+#' pcoga2dim_diff_shape(3,0,4,3,5)
+#' pgamma(3,4,5) - pcoga2dim(3,1,4,3,5)
+#'
+#' pcoga2dim_diff_shape(3,6,0,5,4)
+#' pgamma(3,6,5) - pgamma(3,7,5)
+#'
+#' pcoga2dim_diff_shape(3,0,0,4,5)
+#' 1 - pgamma(3,1,4)
+#'
+#' @author Chaoran Hu
+#'
+#' @export
+pcoga2dim_diff_shape <- function(x, shape1, shape2, rate1, rate2) {
+    .Call('coga_pcoga2dim_diff_shape', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+}
+
 #' Convolution of Gamma Distributions.
 #'
 #' Density, distribution function, and random generation for convolution of gamma

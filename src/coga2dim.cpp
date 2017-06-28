@@ -131,3 +131,60 @@ NumericVector pcoga2dim(NumericVector x, double shape1, double shape2,
   }
   return out;
 }
+
+//' Recurrence Identity of Shape Parameter for Distribution Function of coga2dim 
+//'
+//' The difference of distribution functions of convolution of two gamma
+//' distributions between consecutive neighbors of shape parameter. This
+//' function can return the value of pcoga2dim(x, shape1, shape2, rate1, rate2)
+//' - pcoga2dim(x, shape1 + 1, shape2, rate1, rate2) with higher efficiency
+//' (this function is much more faster than call pcoga2dim).
+//'
+//' @param x Quantiles.
+//' @param shape1,shape2 Shape parameters of the first and second gamma
+//' distributions, all shape parameters >= 0.
+//' @param rate1,rate2 Rate parameters of the first and second gamma
+//' distributions, all rate parameters > 0.
+//'
+//' @examples
+//' pcoga2dim_diff_shape(3,2,4,5,4)
+//' pcoga2dim(3,2,4,5,4) - pcoga2dim(3,3,4,5,4)
+//'
+//' pcoga2dim_diff_shape(3,0,4,3,5)
+//' pgamma(3,4,5) - pcoga2dim(3,1,4,3,5)
+//'
+//' pcoga2dim_diff_shape(3,6,0,5,4)
+//' pgamma(3,6,5) - pgamma(3,7,5)
+//'
+//' pcoga2dim_diff_shape(3,0,0,4,5)
+//' 1 - pgamma(3,1,4)
+//'
+//' @author Chaoran Hu
+//'
+//' @export
+// [[Rcpp::export]]
+double pcoga2dim_diff_shape (double x,
+			     double shape1, double shape2,
+			     double rate1, double rate2) {
+  /*
+  // handle special situations
+  if (shape1 == 0 && shape2 == 0) {
+    return 1 - pcoga2dim(x, 1, 0, rate1, rate2);
+  }
+  if (shape1 == 0 && shape2 != 0) {
+    return pcoga2dim(x, 0, shape2, rate1, rate2) - pcoga2dim(x, 1, shape2, rate1, rate2);
+  }
+  if (shape1 != 0 && shape2 == 0) {
+    return pcoga2dim(x, shape1, 0, rate1, rate2) - pcoga2dim(x, shape1 + 1, 0, rate1, rate2);
+  }
+  */
+  
+  gsl_set_error_handler_off();
+  double result = pow(rate1, shape1) * pow(rate2, shape2);
+  double lgam = shape1 + shape2 + 1;
+  double parx = x * (rate1 - rate2);
+  result *= pow(x, lgam - 1);
+  result /= exp(R::lgammafn(lgam) + (x * rate1));
+  result *= gsl_sf_hyperg_1F1(shape2, lgam, parx);
+  return result;
+}
