@@ -6,7 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this R package for? ###
 
-* A calculation of convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`). Also, this package provide functions, `dcoga2dim` and `pcoga2dim`, to calculate density and distribution function of convolution of *two* gamma distributions, which are much faster than general functions. This package also implements the recurrence identity of shape parameter during convolution of two gamma distributions, via `pcoga2dim_diff_shape`.
+* Convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`). Also, this package provide functions, `dcoga2dim` and `pcoga2dim`, to calculate density and distribution function of convolution of *two* gamma distributions, which are much faster than general functions. This package also implements the recurrence identity of shape parameter during convolution of two gamma distributions, via `pcoga2dim_diff_shape`.
 
 * Version: 0.2.0
 
