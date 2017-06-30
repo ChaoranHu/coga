@@ -93,7 +93,7 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
   */
   // make convergence faster
   double lgam = shape1 + shape2;
-  double sun = 1 - beta1 / beta2;
+  double star = 1 - (beta1 / beta2);
   
   double cartB = 1.;
   double cartD = R::pgamma(x/beta1, lgam, 1, 1, 0);
@@ -108,7 +108,7 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
     }
     result += cart;
     if (cart == 0) break;
-    cartB *= sun * (shape2 + r) / (r + 1);
+    cartB *= star * (shape2 + r) / (r + 1);
     r++;
     cartD = R::pgamma(x/beta1, lgam + r, 1, 1, 0);
     cart = cartB * cartD;

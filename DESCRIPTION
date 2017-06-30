@@ -1,6 +1,6 @@
 Package: coga
 Title: Convolution of Gamma Distributions
-Version: 0.2.0
+Version: 0.2.0.9000
 Date: 2017-06-28
 Authors@R: c(
     person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
@@ -22,8 +22,7 @@ Suggests: knitr,
     microbenchmark
 VignetteBuilder: knitr
 Imports: stats,
-    Rcpp,
-    RcppGSL
+    Rcpp
 LinkingTo: Rcpp, RcppGSL
 BugReports: https://github.com/ChaoranHu/coga/issues
 URL: https://github.com/ChaoranHu/coga
