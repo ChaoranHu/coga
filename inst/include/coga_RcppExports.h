@@ -17,7 +17,7 @@ namespace coga {
             require("coga", Rcpp::Named("quietly") = true);
             typedef int(*Ptr_validate)(const char*);
             static Ptr_validate p_validate = (Ptr_validate)
-                R_GetCCallable("coga", "coga_RcppExport_validate");
+                R_GetCCallable("coga", "_coga_RcppExport_validate");
             if (!p_validate(sig)) {
                 throw Rcpp::function_not_exported(
                     "C++ function with signature '" + std::string(sig) + "' not found in coga");
@@ -30,12 +30,12 @@ namespace coga {
         static Ptr_dcoga2dim_nv p_dcoga2dim_nv = NULL;
         if (p_dcoga2dim_nv == NULL) {
             validateSignature("double(*dcoga2dim_nv)(double,double,double,double,double)");
-            p_dcoga2dim_nv = (Ptr_dcoga2dim_nv)R_GetCCallable("coga", "coga_dcoga2dim_nv");
+            p_dcoga2dim_nv = (Ptr_dcoga2dim_nv)R_GetCCallable("coga", "_coga_dcoga2dim_nv");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_dcoga2dim_nv(Rcpp::wrap(x), Rcpp::wrap(shape1), Rcpp::wrap(shape2), Rcpp::wrap(rate1), Rcpp::wrap(rate2));
+            rcpp_result_gen = p_dcoga2dim_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -49,12 +49,12 @@ namespace coga {
         static Ptr_dcoga2dim p_dcoga2dim = NULL;
         if (p_dcoga2dim == NULL) {
             validateSignature("NumericVector(*dcoga2dim)(NumericVector,double,double,double,double)");
-            p_dcoga2dim = (Ptr_dcoga2dim)R_GetCCallable("coga", "coga_dcoga2dim");
+            p_dcoga2dim = (Ptr_dcoga2dim)R_GetCCallable("coga", "_coga_dcoga2dim");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_dcoga2dim(Rcpp::wrap(x), Rcpp::wrap(shape1), Rcpp::wrap(shape2), Rcpp::wrap(rate1), Rcpp::wrap(rate2));
+            rcpp_result_gen = p_dcoga2dim(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -68,12 +68,12 @@ namespace coga {
         static Ptr_pcoga2dim_nv p_pcoga2dim_nv = NULL;
         if (p_pcoga2dim_nv == NULL) {
             validateSignature("double(*pcoga2dim_nv)(double,double,double,double,double)");
-            p_pcoga2dim_nv = (Ptr_pcoga2dim_nv)R_GetCCallable("coga", "coga_pcoga2dim_nv");
+            p_pcoga2dim_nv = (Ptr_pcoga2dim_nv)R_GetCCallable("coga", "_coga_pcoga2dim_nv");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga2dim_nv(Rcpp::wrap(x), Rcpp::wrap(shape1), Rcpp::wrap(shape2), Rcpp::wrap(rate1), Rcpp::wrap(rate2));
+            rcpp_result_gen = p_pcoga2dim_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -87,12 +87,12 @@ namespace coga {
         static Ptr_pcoga2dim p_pcoga2dim = NULL;
         if (p_pcoga2dim == NULL) {
             validateSignature("NumericVector(*pcoga2dim)(NumericVector,double,double,double,double)");
-            p_pcoga2dim = (Ptr_pcoga2dim)R_GetCCallable("coga", "coga_pcoga2dim");
+            p_pcoga2dim = (Ptr_pcoga2dim)R_GetCCallable("coga", "_coga_pcoga2dim");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga2dim(Rcpp::wrap(x), Rcpp::wrap(shape1), Rcpp::wrap(shape2), Rcpp::wrap(rate1), Rcpp::wrap(rate2));
+            rcpp_result_gen = p_pcoga2dim(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -106,12 +106,12 @@ namespace coga {
         static Ptr_pcoga2dim_diff_shape p_pcoga2dim_diff_shape = NULL;
         if (p_pcoga2dim_diff_shape == NULL) {
             validateSignature("double(*pcoga2dim_diff_shape)(double,double,double,double,double)");
-            p_pcoga2dim_diff_shape = (Ptr_pcoga2dim_diff_shape)R_GetCCallable("coga", "coga_pcoga2dim_diff_shape");
+            p_pcoga2dim_diff_shape = (Ptr_pcoga2dim_diff_shape)R_GetCCallable("coga", "_coga_pcoga2dim_diff_shape");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga2dim_diff_shape(Rcpp::wrap(x), Rcpp::wrap(shape1), Rcpp::wrap(shape2), Rcpp::wrap(rate1), Rcpp::wrap(rate2));
+            rcpp_result_gen = p_pcoga2dim_diff_shape(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -125,12 +125,12 @@ namespace coga {
         static Ptr_dcoga p_dcoga = NULL;
         if (p_dcoga == NULL) {
             validateSignature("NumericVector(*dcoga)(NumericVector,NumericVector,NumericVector)");
-            p_dcoga = (Ptr_dcoga)R_GetCCallable("coga", "coga_dcoga");
+            p_dcoga = (Ptr_dcoga)R_GetCCallable("coga", "_coga_dcoga");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_dcoga(Rcpp::wrap(x), Rcpp::wrap(shape), Rcpp::wrap(rate));
+            rcpp_result_gen = p_dcoga(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(rate)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -144,12 +144,12 @@ namespace coga {
         static Ptr_pcoga p_pcoga = NULL;
         if (p_pcoga == NULL) {
             validateSignature("NumericVector(*pcoga)(NumericVector,NumericVector,NumericVector)");
-            p_pcoga = (Ptr_pcoga)R_GetCCallable("coga", "coga_pcoga");
+            p_pcoga = (Ptr_pcoga)R_GetCCallable("coga", "_coga_pcoga");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga(Rcpp::wrap(x), Rcpp::wrap(shape), Rcpp::wrap(rate));
+            rcpp_result_gen = p_pcoga(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(rate)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

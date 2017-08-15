@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 dcoga2dim_nv <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('coga_dcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+    .Call('_coga_dcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
 #' Convolution of Two Gamma Distributions.
@@ -43,17 +43,17 @@ dcoga2dim_nv <- function(x, shape1, shape2, rate1, rate2) {
 #'
 #' @export
 dcoga2dim <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('coga_dcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+    .Call('_coga_dcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
 pcoga2dim_nv <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('coga_pcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+    .Call('_coga_pcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
 #' @rdname dcoga2dim
 #' @export
 pcoga2dim <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('coga_pcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+    .Call('_coga_pcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
 #' Recurrence Identity of Shape Parameter for Distribution Function of coga2dim 
@@ -87,7 +87,7 @@ pcoga2dim <- function(x, shape1, shape2, rate1, rate2) {
 #'
 #' @export
 pcoga2dim_diff_shape <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('coga_pcoga2dim_diff_shape', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+    .Call('_coga_pcoga2dim_diff_shape', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
 #' Convolution of Gamma Distributions.
@@ -132,16 +132,16 @@ pcoga2dim_diff_shape <- function(x, shape1, shape2, rate1, rate2) {
 #'
 #' @export
 dcoga <- function(x, shape, rate) {
-    .Call('coga_dcoga', PACKAGE = 'coga', x, shape, rate)
+    .Call('_coga_dcoga', PACKAGE = 'coga', x, shape, rate)
 }
 
 #' @rdname dcoga
 #' @export
 pcoga <- function(x, shape, rate) {
-    .Call('coga_pcoga', PACKAGE = 'coga', x, shape, rate)
+    .Call('_coga_pcoga', PACKAGE = 'coga', x, shape, rate)
 }
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('coga_RcppExport_registerCCallable', PACKAGE = 'coga')
+    .Call('_coga_RcppExport_registerCCallable', PACKAGE = 'coga')
 })
