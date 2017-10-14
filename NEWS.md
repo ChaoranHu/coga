@@ -1,3 +1,9 @@
+# CHANGES IN coga VERSION 0.2.1.9000
+
+## MINOR CHANGES
+
+* Correct function `pcoga2dim` under situation of shape parameter equals to zero.
+
 # CHANGES IN coga VERSION 0.2.1
 
 ## MINOR CHANGES
