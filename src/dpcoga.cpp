@@ -87,6 +87,10 @@ double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
 
   while(TRUE) {
     step = delta[k] * pow(x, rho + k - 1) / (exp(R::lgammafn(rho + k)) * pow(beta1, rho + k));
+    if (step == R_PosInf || R_IsNaN(step)) {
+      warning("Inf or NaN happened, not converge!");
+      break;
+    }
     out += step;
     if (step == 0) break;
     delta.push_back(get_next_delta(delta, lgam));
@@ -196,6 +200,10 @@ double pcoga_nv(double x, NumericVector alpha, NumericVector beta) {
 
   while(TRUE) {
     step = delta[k] * R::pgamma(x / beta1, rho + k, 1, 1, 0);
+    if (step == R_PosInf || R_IsNaN(step)) {
+      warning("Inf or NaN happened, not converge!");
+      break;
+    }
     out += step;
     if (step == 0) break;
     delta.push_back(get_next_delta(delta, lgam));
