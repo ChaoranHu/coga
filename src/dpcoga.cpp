@@ -86,7 +86,7 @@ double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
   double step = 0;
 
   while(TRUE) {
-    step = delta[k] * pow(x, rho + k - 1) / (exp(R::lgammafn(rho + k)) * pow(beta1, rho + k));
+    step = delta[k] * R::dgamma(x, rho + k, beta1, 0);
     if (step == R_PosInf || R_IsNaN(step)) {
       warning("Inf or NaN happened, not converge!");
       break;
@@ -98,7 +98,7 @@ double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
     lgam.push_back(get_lgam(alpha, beta, k + 1));
   }
 
-  out *= get_c(alpha, beta) * exp(-x / beta1);
+  out *= get_c(alpha, beta);
   return out;
 }
 
