@@ -4,6 +4,8 @@
 
 * Correct function `pcoga2dim` under situation of shape parameter equals to zero.
 
+* Rewrite function `dcoga` to make it can handle wider ranges of parameters and x.
+
 # CHANGES IN coga VERSION 0.2.1
 
 ## MINOR CHANGES
