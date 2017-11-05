@@ -1,0 +1,6 @@
+coga                    coga: A package for computing convolution of
+                        gamma distributions
+dcoga                   Convolution of Gamma Distributions.
+dcoga2dim               Convolution of Two Gamma Distributions.
+pcoga2dim_diff_shape    Recurrence Identity of Shape Parameter for
+                        Distribution Function of coga2dim
