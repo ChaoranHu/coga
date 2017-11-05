@@ -78,24 +78,24 @@ RcppExport SEXP _coga_dcoga2dim(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SE
     return rcpp_result_gen;
 }
 // pcoga2dim_nv
-double pcoga2dim_nv(double x, double shape1, double shape2, double rate1, double rate2);
-static SEXP _coga_pcoga2dim_nv_try(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP rate1SEXP, SEXP rate2SEXP) {
+double pcoga2dim_nv(double x, double shape1, double shape2, double beta1, double beta2);
+static SEXP _coga_pcoga2dim_nv_try(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP beta1SEXP, SEXP beta2SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type shape1(shape1SEXP);
     Rcpp::traits::input_parameter< double >::type shape2(shape2SEXP);
-    Rcpp::traits::input_parameter< double >::type rate1(rate1SEXP);
-    Rcpp::traits::input_parameter< double >::type rate2(rate2SEXP);
-    rcpp_result_gen = Rcpp::wrap(pcoga2dim_nv(x, shape1, shape2, rate1, rate2));
+    Rcpp::traits::input_parameter< double >::type beta1(beta1SEXP);
+    Rcpp::traits::input_parameter< double >::type beta2(beta2SEXP);
+    rcpp_result_gen = Rcpp::wrap(pcoga2dim_nv(x, shape1, shape2, beta1, beta2));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _coga_pcoga2dim_nv(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP rate1SEXP, SEXP rate2SEXP) {
+RcppExport SEXP _coga_pcoga2dim_nv(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP beta1SEXP, SEXP beta2SEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_coga_pcoga2dim_nv_try(xSEXP, shape1SEXP, shape2SEXP, rate1SEXP, rate2SEXP));
+        rcpp_result_gen = PROTECT(_coga_pcoga2dim_nv_try(xSEXP, shape1SEXP, shape2SEXP, beta1SEXP, beta2SEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {

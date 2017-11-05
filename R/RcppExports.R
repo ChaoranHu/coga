@@ -46,8 +46,8 @@ dcoga2dim <- function(x, shape1, shape2, rate1, rate2) {
     .Call('_coga_dcoga2dim', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
 }
 
-pcoga2dim_nv <- function(x, shape1, shape2, rate1, rate2) {
-    .Call('_coga_pcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, rate1, rate2)
+pcoga2dim_nv <- function(x, shape1, shape2, beta1, beta2) {
+    .Call('_coga_pcoga2dim_nv', PACKAGE = 'coga', x, shape1, shape2, beta1, beta2)
 }
 
 #' @rdname dcoga2dim

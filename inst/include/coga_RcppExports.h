@@ -63,7 +63,7 @@ namespace coga {
         return Rcpp::as<NumericVector >(rcpp_result_gen);
     }
 
-    inline double pcoga2dim_nv(double x, double shape1, double shape2, double rate1, double rate2) {
+    inline double pcoga2dim_nv(double x, double shape1, double shape2, double beta1, double beta2) {
         typedef SEXP(*Ptr_pcoga2dim_nv)(SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_pcoga2dim_nv p_pcoga2dim_nv = NULL;
         if (p_pcoga2dim_nv == NULL) {
@@ -73,7 +73,7 @@ namespace coga {
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_pcoga2dim_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(rate1)), Shield<SEXP>(Rcpp::wrap(rate2)));
+            rcpp_result_gen = p_pcoga2dim_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape1)), Shield<SEXP>(Rcpp::wrap(shape2)), Shield<SEXP>(Rcpp::wrap(beta1)), Shield<SEXP>(Rcpp::wrap(beta2)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
