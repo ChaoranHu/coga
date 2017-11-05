@@ -1,10 +1,11 @@
 # CHANGES IN coga VERSION 0.2.1.9000
 
-## MINOR CHANGES
+## MAJOR CHANGES
 
-* Correct function `pcoga2dim` under situation of shape parameter equals to zero.
+* Rewrite function `dcoga2dim` and `pcoga2dim` to make it faster and more robust.
 
 * Rewrite function `dcoga` to make it can handle wider ranges of parameters and x.
+
 
 # CHANGES IN coga VERSION 0.2.1
 

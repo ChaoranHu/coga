@@ -20,10 +20,9 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   gsl_set_error_handler_off();
   double lgam = shape1 + shape2;
   double parx = (1/beta1 - 1/beta2) * x;
-  double result = pow(x, lgam - 1);
-  result *= gsl_sf_hyperg_1F1(shape2, lgam, parx);
-  result /= pow(beta1, shape1) * pow(beta2, shape2);
-  result /= exp(R::lgammafn(lgam) + (x / beta1));
+  double result = gsl_sf_hyperg_1F1(shape2, lgam, parx);
+  result *= R::dgamma(x, lgam, beta1, 0);
+  result *= pow(beta1 / beta2, shape2);
   return result;
 }
 
@@ -80,12 +79,27 @@ NumericVector dcoga2dim(NumericVector x, double shape1, double shape2,
 }
 
 
+
+
+//Distribuiton Function
+
+double onetermp2dim(int k, double x, double shape1, double shape2,
+		    double beta1, double beta2) {
+  double result = R::dbinom(shape2, shape2 + k, beta1 / beta2, FALSE);
+  result *= R::pgamma(x, k + shape1 + shape2, beta1, 1, 0);
+  result *= shape2 / (shape2 + k);
+  return result;
+}
+
 // [[Rcpp::export]]
 double pcoga2dim_nv(double x, double shape1, double shape2,
-		 double rate1, double rate2) {
+		    double rate1, double rate2) {
   // transfer rate to scale
   double beta1 = 1 / rate1;
   double beta2 = 1 / rate2;
+  // handle one shape is 0
+  if (shape1 == 0) return R::pgamma(x, shape2, beta2, 1, 0);
+  if (shape2 == 0) return R::pgamma(x, shape1, beta1, 1, 0);
 
   if (beta1 > beta2) {
     double beta_cart = beta1;
@@ -96,36 +110,73 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
     shape2 = shape_cart;
   }
 
-  /*
-  // handle one shape is 0
-  if (shape1 == 0) return R::pgamma(x, shape2, beta2, 1, 0);
-  if (shape2 == 0) return R::pgamma(x, shape1, beta1, 1, 0);
-  */
-  
-  // make convergence faster
-  double lgam = shape1 + shape2;
-  double starn = 1 - (beta1 / beta2);
-  
-  double cartB = 1.;
-  double cartD = R::pgamma(x/beta1, lgam, 1, 1, 0);
-  double cart = cartD;
-  double result = 0.;
-  int r = 0;
+  double result = 0;
+  double cart = 0;
+  int k = 0;
 
-  while (TRUE) {
+  while(TRUE) {
+    cart = onetermp2dim(k, x, shape1, shape2, beta1, beta2);
     if (cart == R_PosInf || R_IsNaN(cart)) {
       warning("Inf or NaN happened, not converge!");
       break;
     }
-    result += cart;
     if (cart == 0) break;
-    cartB *= starn * (shape2 + r) / (r + 1);
-    r++;
-    cartD = R::pgamma(x/beta1, lgam + r, 1, 1, 0);
-    cart = cartB * cartD;
+    result += cart;
+    k++;
   }
-  return result * pow(beta1/beta2, shape2);
+
+  return result;
 }
+
+
+
+
+// old version
+// double pcoga2dim_nv(double x, double shape1, double shape2,
+// 		 double rate1, double rate2) {
+//   // transfer rate to scale
+//   double beta1 = 1 / rate1;
+//   double beta2 = 1 / rate2;
+
+//   if (beta1 > beta2) {
+//     double beta_cart = beta1;
+//     beta1 = beta2;
+//     beta2 = beta_cart;
+//     double shape_cart = shape1;
+//     shape1 = shape2;
+//     shape2 = shape_cart;
+//   }
+
+//   /*
+//   // handle one shape is 0
+//   if (shape1 == 0) return R::pgamma(x, shape2, beta2, 1, 0);
+//   if (shape2 == 0) return R::pgamma(x, shape1, beta1, 1, 0);
+//   */
+  
+//   // make convergence faster
+//   double lgam = shape1 + shape2;
+//   double starn = 1 - (beta1 / beta2);
+  
+//   double cartB = 1.;
+//   double cartD = R::pgamma(x/beta1, lgam, 1, 1, 0);
+//   double cart = cartD;
+//   double result = 0.;
+//   int r = 0;
+
+//   while (TRUE) {
+//     if (cart == R_PosInf || R_IsNaN(cart)) {
+//       warning("Inf or NaN happened, not converge!");
+//       break;
+//     }
+//     result += cart;
+//     if (cart == 0) break;
+//     cartB *= starn * (shape2 + r) / (r + 1);
+//     r++;
+//     cartD = R::pgamma(x/beta1, lgam + r, 1, 1, 0);
+//     cart = cartB * cartD;
+//   }
+//   return result * pow(beta1/beta2, shape2);
+// }
 
 //' @rdname dcoga2dim
 //' @export
