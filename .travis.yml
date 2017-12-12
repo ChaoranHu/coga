@@ -9,6 +9,9 @@ r:
 apt_packages:
   - libgsl0-dev
 
+r_packages:
+  - devtools
+
 r_github_packages:
   - jimhester/covr
 
