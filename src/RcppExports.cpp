@@ -9,6 +9,481 @@
 
 using namespace Rcpp;
 
+// get_mu
+double get_mu(NumericVector alpha, NumericVector beta);
+static SEXP _coga_get_mu_try(SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_mu(alpha, beta));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_mu(SEXP alphaSEXP, SEXP betaSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_mu_try(alphaSEXP, betaSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_mu2
+double get_mu2(NumericVector alpha, NumericVector beta);
+static SEXP _coga_get_mu2_try(SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_mu2(alpha, beta));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_mu2(SEXP alphaSEXP, SEXP betaSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_mu2_try(alphaSEXP, betaSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_mu3
+double get_mu3(NumericVector alpha, NumericVector beta);
+static SEXP _coga_get_mu3_try(SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_mu3(alpha, beta));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_mu3(SEXP alphaSEXP, SEXP betaSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_mu3_try(alphaSEXP, betaSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_A
+double get_A(double mu, double mu2, double mu3);
+static SEXP _coga_get_A_try(SEXP muSEXP, SEXP mu2SEXP, SEXP mu3SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< double >::type mu2(mu2SEXP);
+    Rcpp::traits::input_parameter< double >::type mu3(mu3SEXP);
+    rcpp_result_gen = Rcpp::wrap(get_A(mu, mu2, mu3));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_A(SEXP muSEXP, SEXP mu2SEXP, SEXP mu3SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_A_try(muSEXP, mu2SEXP, mu3SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_p_GNB
+double get_p_GNB(double A);
+static SEXP _coga_get_p_GNB_try(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(get_p_GNB(A));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_p_GNB(SEXP ASEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_p_GNB_try(ASEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_b_GNB
+double get_b_GNB(double p, double mu, double mu2);
+static SEXP _coga_get_b_GNB_try(SEXP pSEXP, SEXP muSEXP, SEXP mu2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< double >::type mu2(mu2SEXP);
+    rcpp_result_gen = Rcpp::wrap(get_b_GNB(p, mu, mu2));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_b_GNB(SEXP pSEXP, SEXP muSEXP, SEXP mu2SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_b_GNB_try(pSEXP, muSEXP, mu2SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_r_GNB
+double get_r_GNB(double mu, double p, double b);
+static SEXP _coga_get_r_GNB_try(SEXP muSEXP, SEXP pSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< double >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_r_GNB(mu, p, b));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_r_GNB(SEXP muSEXP, SEXP pSEXP, SEXP bSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_r_GNB_try(muSEXP, pSEXP, bSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_p_NB
+double get_p_NB(double mu, double mu2);
+static SEXP _coga_get_p_NB_try(SEXP muSEXP, SEXP mu2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< double >::type mu2(mu2SEXP);
+    rcpp_result_gen = Rcpp::wrap(get_p_NB(mu, mu2));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_p_NB(SEXP muSEXP, SEXP mu2SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_p_NB_try(muSEXP, mu2SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// get_r_NB
+double get_r_NB(double p, double mu);
+static SEXP _coga_get_r_NB_try(SEXP pSEXP, SEXP muSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_r_NB(p, mu));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_get_r_NB(SEXP pSEXP, SEXP muSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_get_r_NB_try(pSEXP, muSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// GNB
+double GNB(double k, double r, double p, double b, double mu);
+static SEXP _coga_GNB_try(SEXP kSEXP, SEXP rSEXP, SEXP pSEXP, SEXP bSEXP, SEXP muSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type r(rSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< double >::type b(bSEXP);
+    Rcpp::traits::input_parameter< double >::type mu(muSEXP);
+    rcpp_result_gen = Rcpp::wrap(GNB(k, r, p, b, mu));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_GNB(SEXP kSEXP, SEXP rSEXP, SEXP pSEXP, SEXP bSEXP, SEXP muSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_GNB_try(kSEXP, rSEXP, pSEXP, bSEXP, muSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// NB
+double NB(double k, double r, double p);
+static SEXP _coga_NB_try(SEXP kSEXP, SEXP rSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type k(kSEXP);
+    Rcpp::traits::input_parameter< double >::type r(rSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(NB(k, r, p));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_NB(SEXP kSEXP, SEXP rSEXP, SEXP pSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_NB_try(kSEXP, rSEXP, pSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// dcoga_approx_nv
+double dcoga_approx_nv(double x, NumericVector alpha, NumericVector beta);
+static SEXP _coga_dcoga_approx_nv_try(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(dcoga_approx_nv(x, alpha, beta));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_dcoga_approx_nv(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_dcoga_approx_nv_try(xSEXP, alphaSEXP, betaSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// dcoga_approx
+NumericVector dcoga_approx(NumericVector x, NumericVector shape, NumericVector rate);
+static SEXP _coga_dcoga_approx_try(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type shape(shapeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type rate(rateSEXP);
+    rcpp_result_gen = Rcpp::wrap(dcoga_approx(x, shape, rate));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_dcoga_approx(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_dcoga_approx_try(xSEXP, shapeSEXP, rateSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// pcoga_approx_nv
+double pcoga_approx_nv(double x, NumericVector alpha, NumericVector beta);
+static SEXP _coga_pcoga_approx_nv_try(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(pcoga_approx_nv(x, alpha, beta));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_pcoga_approx_nv(SEXP xSEXP, SEXP alphaSEXP, SEXP betaSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_pcoga_approx_nv_try(xSEXP, alphaSEXP, betaSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// pcoga_approx
+NumericVector pcoga_approx(NumericVector x, NumericVector shape, NumericVector rate);
+static SEXP _coga_pcoga_approx_try(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type shape(shapeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type rate(rateSEXP);
+    rcpp_result_gen = Rcpp::wrap(pcoga_approx(x, shape, rate));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_pcoga_approx(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_pcoga_approx_try(xSEXP, shapeSEXP, rateSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 // dcoga2dim_nv
 double dcoga2dim_nv(double x, double shape1, double shape2, double rate1, double rate2);
 static SEXP _coga_dcoga2dim_nv_try(SEXP xSEXP, SEXP shape1SEXP, SEXP shape2SEXP, SEXP rate1SEXP, SEXP rate2SEXP) {
@@ -248,6 +723,21 @@ RcppExport SEXP _coga_pcoga(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
 static int _coga_RcppExport_validate(const char* sig) { 
     static std::set<std::string> signatures;
     if (signatures.empty()) {
+        signatures.insert("double(*get_mu)(NumericVector,NumericVector)");
+        signatures.insert("double(*get_mu2)(NumericVector,NumericVector)");
+        signatures.insert("double(*get_mu3)(NumericVector,NumericVector)");
+        signatures.insert("double(*get_A)(double,double,double)");
+        signatures.insert("double(*get_p_GNB)(double)");
+        signatures.insert("double(*get_b_GNB)(double,double,double)");
+        signatures.insert("double(*get_r_GNB)(double,double,double)");
+        signatures.insert("double(*get_p_NB)(double,double)");
+        signatures.insert("double(*get_r_NB)(double,double)");
+        signatures.insert("double(*GNB)(double,double,double,double,double)");
+        signatures.insert("double(*NB)(double,double,double)");
+        signatures.insert("double(*dcoga_approx_nv)(double,NumericVector,NumericVector)");
+        signatures.insert("NumericVector(*dcoga_approx)(NumericVector,NumericVector,NumericVector)");
+        signatures.insert("double(*pcoga_approx_nv)(double,NumericVector,NumericVector)");
+        signatures.insert("NumericVector(*pcoga_approx)(NumericVector,NumericVector,NumericVector)");
         signatures.insert("double(*dcoga2dim_nv)(double,double,double,double,double)");
         signatures.insert("NumericVector(*dcoga2dim)(NumericVector,double,double,double,double)");
         signatures.insert("double(*pcoga2dim_nv)(double,double,double,double,double)");
@@ -261,6 +751,21 @@ static int _coga_RcppExport_validate(const char* sig) {
 
 // registerCCallable (register entry points for exported C++ functions)
 RcppExport SEXP _coga_RcppExport_registerCCallable() { 
+    R_RegisterCCallable("coga", "_coga_get_mu", (DL_FUNC)_coga_get_mu_try);
+    R_RegisterCCallable("coga", "_coga_get_mu2", (DL_FUNC)_coga_get_mu2_try);
+    R_RegisterCCallable("coga", "_coga_get_mu3", (DL_FUNC)_coga_get_mu3_try);
+    R_RegisterCCallable("coga", "_coga_get_A", (DL_FUNC)_coga_get_A_try);
+    R_RegisterCCallable("coga", "_coga_get_p_GNB", (DL_FUNC)_coga_get_p_GNB_try);
+    R_RegisterCCallable("coga", "_coga_get_b_GNB", (DL_FUNC)_coga_get_b_GNB_try);
+    R_RegisterCCallable("coga", "_coga_get_r_GNB", (DL_FUNC)_coga_get_r_GNB_try);
+    R_RegisterCCallable("coga", "_coga_get_p_NB", (DL_FUNC)_coga_get_p_NB_try);
+    R_RegisterCCallable("coga", "_coga_get_r_NB", (DL_FUNC)_coga_get_r_NB_try);
+    R_RegisterCCallable("coga", "_coga_GNB", (DL_FUNC)_coga_GNB_try);
+    R_RegisterCCallable("coga", "_coga_NB", (DL_FUNC)_coga_NB_try);
+    R_RegisterCCallable("coga", "_coga_dcoga_approx_nv", (DL_FUNC)_coga_dcoga_approx_nv_try);
+    R_RegisterCCallable("coga", "_coga_dcoga_approx", (DL_FUNC)_coga_dcoga_approx_try);
+    R_RegisterCCallable("coga", "_coga_pcoga_approx_nv", (DL_FUNC)_coga_pcoga_approx_nv_try);
+    R_RegisterCCallable("coga", "_coga_pcoga_approx", (DL_FUNC)_coga_pcoga_approx_try);
     R_RegisterCCallable("coga", "_coga_dcoga2dim_nv", (DL_FUNC)_coga_dcoga2dim_nv_try);
     R_RegisterCCallable("coga", "_coga_dcoga2dim", (DL_FUNC)_coga_dcoga2dim_try);
     R_RegisterCCallable("coga", "_coga_pcoga2dim_nv", (DL_FUNC)_coga_pcoga2dim_nv_try);
@@ -273,6 +778,21 @@ RcppExport SEXP _coga_RcppExport_registerCCallable() {
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_coga_get_mu", (DL_FUNC) &_coga_get_mu, 2},
+    {"_coga_get_mu2", (DL_FUNC) &_coga_get_mu2, 2},
+    {"_coga_get_mu3", (DL_FUNC) &_coga_get_mu3, 2},
+    {"_coga_get_A", (DL_FUNC) &_coga_get_A, 3},
+    {"_coga_get_p_GNB", (DL_FUNC) &_coga_get_p_GNB, 1},
+    {"_coga_get_b_GNB", (DL_FUNC) &_coga_get_b_GNB, 3},
+    {"_coga_get_r_GNB", (DL_FUNC) &_coga_get_r_GNB, 3},
+    {"_coga_get_p_NB", (DL_FUNC) &_coga_get_p_NB, 2},
+    {"_coga_get_r_NB", (DL_FUNC) &_coga_get_r_NB, 2},
+    {"_coga_GNB", (DL_FUNC) &_coga_GNB, 5},
+    {"_coga_NB", (DL_FUNC) &_coga_NB, 3},
+    {"_coga_dcoga_approx_nv", (DL_FUNC) &_coga_dcoga_approx_nv, 3},
+    {"_coga_dcoga_approx", (DL_FUNC) &_coga_dcoga_approx, 3},
+    {"_coga_pcoga_approx_nv", (DL_FUNC) &_coga_pcoga_approx_nv, 3},
+    {"_coga_pcoga_approx", (DL_FUNC) &_coga_pcoga_approx, 3},
     {"_coga_dcoga2dim_nv", (DL_FUNC) &_coga_dcoga2dim_nv, 5},
     {"_coga_dcoga2dim", (DL_FUNC) &_coga_dcoga2dim, 5},
     {"_coga_pcoga2dim_nv", (DL_FUNC) &_coga_pcoga2dim_nv, 5},

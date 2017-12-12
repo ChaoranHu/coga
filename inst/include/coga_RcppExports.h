@@ -25,6 +25,291 @@ namespace coga {
         }
     }
 
+    inline double get_mu(NumericVector alpha, NumericVector beta) {
+        typedef SEXP(*Ptr_get_mu)(SEXP,SEXP);
+        static Ptr_get_mu p_get_mu = NULL;
+        if (p_get_mu == NULL) {
+            validateSignature("double(*get_mu)(NumericVector,NumericVector)");
+            p_get_mu = (Ptr_get_mu)R_GetCCallable("coga", "_coga_get_mu");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_mu(Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(beta)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_mu2(NumericVector alpha, NumericVector beta) {
+        typedef SEXP(*Ptr_get_mu2)(SEXP,SEXP);
+        static Ptr_get_mu2 p_get_mu2 = NULL;
+        if (p_get_mu2 == NULL) {
+            validateSignature("double(*get_mu2)(NumericVector,NumericVector)");
+            p_get_mu2 = (Ptr_get_mu2)R_GetCCallable("coga", "_coga_get_mu2");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_mu2(Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(beta)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_mu3(NumericVector alpha, NumericVector beta) {
+        typedef SEXP(*Ptr_get_mu3)(SEXP,SEXP);
+        static Ptr_get_mu3 p_get_mu3 = NULL;
+        if (p_get_mu3 == NULL) {
+            validateSignature("double(*get_mu3)(NumericVector,NumericVector)");
+            p_get_mu3 = (Ptr_get_mu3)R_GetCCallable("coga", "_coga_get_mu3");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_mu3(Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(beta)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_A(double mu, double mu2, double mu3) {
+        typedef SEXP(*Ptr_get_A)(SEXP,SEXP,SEXP);
+        static Ptr_get_A p_get_A = NULL;
+        if (p_get_A == NULL) {
+            validateSignature("double(*get_A)(double,double,double)");
+            p_get_A = (Ptr_get_A)R_GetCCallable("coga", "_coga_get_A");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_A(Shield<SEXP>(Rcpp::wrap(mu)), Shield<SEXP>(Rcpp::wrap(mu2)), Shield<SEXP>(Rcpp::wrap(mu3)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_p_GNB(double A) {
+        typedef SEXP(*Ptr_get_p_GNB)(SEXP);
+        static Ptr_get_p_GNB p_get_p_GNB = NULL;
+        if (p_get_p_GNB == NULL) {
+            validateSignature("double(*get_p_GNB)(double)");
+            p_get_p_GNB = (Ptr_get_p_GNB)R_GetCCallable("coga", "_coga_get_p_GNB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_p_GNB(Shield<SEXP>(Rcpp::wrap(A)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_b_GNB(double p, double mu, double mu2) {
+        typedef SEXP(*Ptr_get_b_GNB)(SEXP,SEXP,SEXP);
+        static Ptr_get_b_GNB p_get_b_GNB = NULL;
+        if (p_get_b_GNB == NULL) {
+            validateSignature("double(*get_b_GNB)(double,double,double)");
+            p_get_b_GNB = (Ptr_get_b_GNB)R_GetCCallable("coga", "_coga_get_b_GNB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_b_GNB(Shield<SEXP>(Rcpp::wrap(p)), Shield<SEXP>(Rcpp::wrap(mu)), Shield<SEXP>(Rcpp::wrap(mu2)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_r_GNB(double mu, double p, double b) {
+        typedef SEXP(*Ptr_get_r_GNB)(SEXP,SEXP,SEXP);
+        static Ptr_get_r_GNB p_get_r_GNB = NULL;
+        if (p_get_r_GNB == NULL) {
+            validateSignature("double(*get_r_GNB)(double,double,double)");
+            p_get_r_GNB = (Ptr_get_r_GNB)R_GetCCallable("coga", "_coga_get_r_GNB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_r_GNB(Shield<SEXP>(Rcpp::wrap(mu)), Shield<SEXP>(Rcpp::wrap(p)), Shield<SEXP>(Rcpp::wrap(b)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_p_NB(double mu, double mu2) {
+        typedef SEXP(*Ptr_get_p_NB)(SEXP,SEXP);
+        static Ptr_get_p_NB p_get_p_NB = NULL;
+        if (p_get_p_NB == NULL) {
+            validateSignature("double(*get_p_NB)(double,double)");
+            p_get_p_NB = (Ptr_get_p_NB)R_GetCCallable("coga", "_coga_get_p_NB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_p_NB(Shield<SEXP>(Rcpp::wrap(mu)), Shield<SEXP>(Rcpp::wrap(mu2)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double get_r_NB(double p, double mu) {
+        typedef SEXP(*Ptr_get_r_NB)(SEXP,SEXP);
+        static Ptr_get_r_NB p_get_r_NB = NULL;
+        if (p_get_r_NB == NULL) {
+            validateSignature("double(*get_r_NB)(double,double)");
+            p_get_r_NB = (Ptr_get_r_NB)R_GetCCallable("coga", "_coga_get_r_NB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_get_r_NB(Shield<SEXP>(Rcpp::wrap(p)), Shield<SEXP>(Rcpp::wrap(mu)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double GNB(double k, double r, double p, double b, double mu) {
+        typedef SEXP(*Ptr_GNB)(SEXP,SEXP,SEXP,SEXP,SEXP);
+        static Ptr_GNB p_GNB = NULL;
+        if (p_GNB == NULL) {
+            validateSignature("double(*GNB)(double,double,double,double,double)");
+            p_GNB = (Ptr_GNB)R_GetCCallable("coga", "_coga_GNB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_GNB(Shield<SEXP>(Rcpp::wrap(k)), Shield<SEXP>(Rcpp::wrap(r)), Shield<SEXP>(Rcpp::wrap(p)), Shield<SEXP>(Rcpp::wrap(b)), Shield<SEXP>(Rcpp::wrap(mu)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double NB(double k, double r, double p) {
+        typedef SEXP(*Ptr_NB)(SEXP,SEXP,SEXP);
+        static Ptr_NB p_NB = NULL;
+        if (p_NB == NULL) {
+            validateSignature("double(*NB)(double,double,double)");
+            p_NB = (Ptr_NB)R_GetCCallable("coga", "_coga_NB");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_NB(Shield<SEXP>(Rcpp::wrap(k)), Shield<SEXP>(Rcpp::wrap(r)), Shield<SEXP>(Rcpp::wrap(p)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double dcoga_approx_nv(double x, NumericVector alpha, NumericVector beta) {
+        typedef SEXP(*Ptr_dcoga_approx_nv)(SEXP,SEXP,SEXP);
+        static Ptr_dcoga_approx_nv p_dcoga_approx_nv = NULL;
+        if (p_dcoga_approx_nv == NULL) {
+            validateSignature("double(*dcoga_approx_nv)(double,NumericVector,NumericVector)");
+            p_dcoga_approx_nv = (Ptr_dcoga_approx_nv)R_GetCCallable("coga", "_coga_dcoga_approx_nv");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_dcoga_approx_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(beta)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline NumericVector dcoga_approx(NumericVector x, NumericVector shape, NumericVector rate) {
+        typedef SEXP(*Ptr_dcoga_approx)(SEXP,SEXP,SEXP);
+        static Ptr_dcoga_approx p_dcoga_approx = NULL;
+        if (p_dcoga_approx == NULL) {
+            validateSignature("NumericVector(*dcoga_approx)(NumericVector,NumericVector,NumericVector)");
+            p_dcoga_approx = (Ptr_dcoga_approx)R_GetCCallable("coga", "_coga_dcoga_approx");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_dcoga_approx(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(rate)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<NumericVector >(rcpp_result_gen);
+    }
+
+    inline double pcoga_approx_nv(double x, NumericVector alpha, NumericVector beta) {
+        typedef SEXP(*Ptr_pcoga_approx_nv)(SEXP,SEXP,SEXP);
+        static Ptr_pcoga_approx_nv p_pcoga_approx_nv = NULL;
+        if (p_pcoga_approx_nv == NULL) {
+            validateSignature("double(*pcoga_approx_nv)(double,NumericVector,NumericVector)");
+            p_pcoga_approx_nv = (Ptr_pcoga_approx_nv)R_GetCCallable("coga", "_coga_pcoga_approx_nv");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_pcoga_approx_nv(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(beta)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline NumericVector pcoga_approx(NumericVector x, NumericVector shape, NumericVector rate) {
+        typedef SEXP(*Ptr_pcoga_approx)(SEXP,SEXP,SEXP);
+        static Ptr_pcoga_approx p_pcoga_approx = NULL;
+        if (p_pcoga_approx == NULL) {
+            validateSignature("NumericVector(*pcoga_approx)(NumericVector,NumericVector,NumericVector)");
+            p_pcoga_approx = (Ptr_pcoga_approx)R_GetCCallable("coga", "_coga_pcoga_approx");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_pcoga_approx(Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(rate)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<NumericVector >(rcpp_result_gen);
+    }
+
     inline double dcoga2dim_nv(double x, double shape1, double shape2, double rate1, double rate2) {
         typedef SEXP(*Ptr_dcoga2dim_nv)(SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_dcoga2dim_nv p_dcoga2dim_nv = NULL;

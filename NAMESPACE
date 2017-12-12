@@ -2,9 +2,11 @@
 
 export(dcoga)
 export(dcoga2dim)
+export(dcoga_approx)
 export(pcoga)
 export(pcoga2dim)
 export(pcoga2dim_diff_shape)
+export(pcoga_approx)
 export(rcoga)
 importFrom(Rcpp,evalCpp)
 importFrom(Rcpp,sourceCpp)

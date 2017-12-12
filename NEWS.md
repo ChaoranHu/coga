@@ -6,6 +6,8 @@
 
 * Rewrite function `dcoga` to make it can handle wider ranges of parameters and x.
 
+* Add new function `dcoga_approx` and `pcoga_approx` for approximation method, that can impove the speed of code under three or more variables case.
+
 
 # CHANGES IN coga VERSION 0.2.1
 

@@ -6,7 +6,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this R package for? ###
 
-* Convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`). Also, this package provide functions, `dcoga2dim` and `pcoga2dim`, to calculate density and distribution function of convolution of *two* gamma distributions, which are much faster than general functions. This package also implements the recurrence identity of shape parameter during convolution of two gamma distributions, via `pcoga2dim_diff_shape`.
+* Convolution of gamma distributions in R. The convolution of gamma distributions is the sum of series of gamma distributions and all gamma distributions here can have different parameters. This package can calculate density function (`dcoga`), distribution function (`pcoga`), and do simulation work (`rcoga`). Also, this package provide functions, `dcoga2dim` and `pcoga2dim`, to calculate density and distribution function of convolution of *two* gamma distributions, which are much faster than general functions. This package also implements the recurrence identity of shape parameter during convolution of two gamma distributions, via `pcoga2dim_diff_shape`. The approximation method for convolution of three or more gamma distribuitons is implemented and can be access with R function `dcoga_approx` and `pcoga_approx`. This approximation method can give an approximate result and improve the speed of the code significantly.
 
 * Version: 0.2.1.9000
 
@@ -47,3 +47,5 @@ Chaoran Hu, <chaoran.hu@uconn.edu>
 [1] Moschopoulos, Peter G. "The distribution of the sum of independent gamma random variables." Annals of the Institute of Statistical Mathematics 37.1 (1985): 541-544.
 
 [2] Mathai, A.M.: Storage capacity of a dam with gamma type inputs. Ann. Inst. Statist.Math. 34, 591-597 (1982).
+
+[3] Barnabani, M. (2017). An approxmation to the convolution of gamma distributions. Communications in Statistics - Simulation and Computation 46(1), 331-343.
