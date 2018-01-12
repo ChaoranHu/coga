@@ -9,17 +9,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include=FALSE}
-library(coga)
-if (!requireNamespace("microbenchmark", quietly = TRUE)) {
-  stop("Pkg microbenchmark needed for this vignette to work. Please install it.",
-    call. = FALSE)
-}
-```
 
 # Introduction
 
 This R package coga can help you to calculate density and distribution function of convolution of gamma distributions. The convolution of gamma distributions is the sum of series of independent gamma distributions. The algorithm of this package comes from Moschopoulos Peter G. (1985). The R coda in this vignette also can be considered as useful examples.
+
+```{r, echo=TRUE}
+library(coga)
+```
 
 # Algorithm
 
@@ -60,35 +57,6 @@ cdf <- pcoga(grid, shape=c(3, 4), rate=c(2, 3))
 
 plot(ecdf(y), col="blue")
 lines(grid, cdf, col="red")
-```
-
-# Speed
-
-The 'dcoga' and 'pcoga' functions in this package 'coga' is based on Cpp code. The following experiment shows the advantage of Cpp code, which runs on a Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz computer.
-
-```{r, echo=TRUE}
-grid <- seq(0, 15, length.out=10)
-
-microbenchmark::microbenchmark(
-    dcoga(grid, shape=c(3,4,5), rate=c(2,3,4)),
-    coga:::dcoga.R(grid, shape=c(3,4,5), rate=c(2,3,4)),
-    pcoga(grid, shape=c(3,4,5), rate=c(2,3,4)),
-    coga:::pcoga.R(grid, shape=c(3,4,5), rate=c(2,3,4))
-)
-```
-
-Note: In this example, 'dcoga.R', and 'pcoga.R' are the R version functions for density, and distribution functions of convolution of gamma distributions. We do not put these two R functions as export functions in package 'coga', but you can still use them by 'coga:::dcoga', and 'coga:::pcoga'.
-
-The convolution of two gamma distributions is a special situation of convolution of gamma distributions. The functions 'dcoga2dim' and 'pcoga2dim' can solve this problem with higher efficiency (they are much more faster than the general functions, 'dcoga' and 'pcoga'.)
-
-```{r, echo=TRUE}
-grid <- seq(0, 15, length.out=100)
-
-microbenchmark::microbenchmark(
-    dcoga(grid, shape=c(3,4), rate=c(2,3)),
-    dcoga2dim(grid, 3, 4, 2, 3),
-    pcoga(grid, shape=c(3,4), rate=c(2,3)),
-    pcoga2dim(grid, 3, 4, 2, 3))
 ```
 
 # Parameters Recycling
