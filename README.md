@@ -36,7 +36,7 @@ Note: The first way need your computer have development tools, but can help you 
 
 ### How do I use? ###
 
-Please read vignette of this package by type `browseVignettes("coga")` in R, which includes several examples.
+Please build and read vignette of this package in `inst` folder, which includes several examples.
 
 ### Who do I talk to? ###
 
