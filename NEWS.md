@@ -8,6 +8,12 @@
 
 * Add new function `dcoga_approx` and `pcoga_approx` for approximation method, that can impove the speed of code under three or more variables case.
 
+## MINOR CHANGES
+
+* Remove `microbenchmark` from *Suggests* according to the requirement from CRAN.
+
+* Move vignette to inst in order to pass the cran check with devel R.
+
 
 # CHANGES IN coga VERSION 0.2.1
 
