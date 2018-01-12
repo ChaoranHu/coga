@@ -1,4 +1,4 @@
-# CHANGES IN coga VERSION 0.2.1.9000
+# CHANGES IN coga VERSION 0.2.2
 
 ## MAJOR CHANGES
 
@@ -13,6 +13,8 @@
 * Remove `microbenchmark` from *Suggests* according to the requirement from CRAN.
 
 * Move vignette to inst in order to pass the cran check with devel R.
+
+* Depend on R 3.4.0
 
 
 # CHANGES IN coga VERSION 0.2.1
