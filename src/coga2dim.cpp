@@ -195,11 +195,12 @@ double pcoga2dim_diff_shape (double x,
   */
   
   gsl_set_error_handler_off();
-  double result = pow(rate1, shape1) * pow(rate2, shape2);
+
+  double result = pow(rate2 / rate1, shape2);
   double lgam = shape1 + shape2 + 1;
   double parx = x * (rate1 - rate2);
-  result *= pow(x, lgam - 1);
-  result /= exp(R::lgammafn(lgam) + (x * rate1));
+  result /= rate1;
+  result *= R::dgamma(x, lgam, 1 / rate1, 0);
   result *= gsl_sf_hyperg_1F1(shape2, lgam, parx);
   return result;
 }
