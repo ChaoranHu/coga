@@ -31,7 +31,7 @@ preview: $(vignettes)
 
 $(tar): $(objects)
 #	@make -s updateMeta
-	Rscript -e "library(methods); devtools::document();";
+	Rscript -e "library(methods); devtools::document();"#;
 	R CMD build $(dir)
 
 $(checkLog): $(tar) $(tests)
@@ -61,4 +61,5 @@ $(vignettes): $(rmd)
 
 .PHONY: clean
 clean:
-	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html config.log config.status src/Makevars
+	rm -rf *~ */*~ *.Rhistroy *.tar.gz *.Rcheck/ .\#* src/*.so src/*.o vignettes/*.html
+	rm -rf config.log config.status src/Makevars autom4te.cache/
