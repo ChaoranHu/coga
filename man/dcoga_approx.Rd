@@ -3,7 +3,7 @@
 \name{dcoga_approx}
 \alias{dcoga_approx}
 \alias{pcoga_approx}
-\title{Convolution of Gamma distribuitons with Approximation Method}
+\title{Convolution of Gamma distribuitons (Approximation Method)}
 \usage{
 dcoga_approx(x, shape, rate)
 
@@ -12,19 +12,45 @@ pcoga_approx(x, shape, rate)
 \arguments{
 \item{x}{Quantiles.}
 
-\item{shape}{Numerical vector of shape parameters.}
+\item{shape}{Numerical vector of shape parameters for each gamma distributions,
+all shape parameters should be larger than or equal to 0, with at least three
+non-zero.}
 
-\item{rate}{Numerical vector of rate parameters.}
+\item{rate}{Numerical vector of rate parameters for each gamma distributions,
+all rate parameters should be larger than 0.}
 }
 \description{
 Density and distribution function of convolution of gamma distributions
 are calculated based on approximation method from Barnabani(2017), which
-gives us the benefit of faster calculation speed under three or more
-variables case.
+gives us the approximate result and faster evaluation than \code{dcoga}
+and \code{pcoga} during three or more variables case. **So, we recommend
+these functions for three or more varibales case with approximate result.**
 }
 \examples{
-dcoga_approx(1:10, c(1, 2, 3), c(2, 3, 4))
-pcoga_approx(1:10, c(1, 2, 3), c(2, 3, 4))
+## Example 1: Correctness check
+set.seed(123)
+## do grid
+y <- rcoga(100000, c(3,4,5), c(2,3,4))
+grid <- seq(0, 15, length.out=100)
+## calculate pdf and cdf
+pdf <- dcoga_approx(grid, shape=c(3,4,5), rate=c(2,3,4))
+cdf <- pcoga_approx(grid, shape=c(3,4,5), rate=c(2,3,4))
+
+## plot pdf
+plot(density(y), col="blue")
+lines(grid, pdf, col="red")
+
+## plot cdf
+plot(ecdf(y), col="blue")
+lines(grid, cdf, col="red")
+
+## Example 2: Show parameter recycling
+## these pairs give us the same results
+dcoga_approx(1:5, c(1, 2), c(1, 3, 4, 2, 5))
+dcoga_approx(1:5, c(1, 2, 1, 2, 1), c(1, 3, 4, 2, 5))
+
+pcoga_approx(1:5, c(1, 3, 5, 2, 2), c(3, 5))
+pcoga_approx(1:5, c(1, 3, 5, 2, 2), c(3, 5, 3, 5, 3))
 
 }
 \references{

@@ -1,12 +1,13 @@
-##' coga: A package for computing convolution of gamma distributions
+##' coga: Convolution of independent Gamma Distributions
 ##'
-##' A calculation of convolution of gamma distributions in R. The convolution of 
-##' gamma distributions is the sum of series of gamma distributions and all gamma
-##' distributions here can have different parameters. This package can calculate
-##' density, distribution function and do simulation work.
+##' Evaluation for density and distribution function of convolution of gamma
+##' distributions in R. Two related exact methods and one approximate method are
+##' implemented with efficient algorithm and C++ code. A quick guide for choosing
+##' correct method and usage of this package is given in package vignette.
 ##'
 ##' @section coga functions:
-##' dcoga, pcoga, rcoga, dcoga2dim, and pcoga2dim.
+##' dcoga, pcoga, rcoga, dcoga2dim, pcoga2dim, pcoga2dim_diff_shape, dcoga_approx, and
+##' pcoga_approx.
 ##'
 ##' @author
 ##' \itemize{

@@ -102,28 +102,32 @@ double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
   return out;
 }
 
-//' Convolution of Gamma Distributions.
+//' Convolution of Gamma Distributions (Exact Method).
 //'
-//' Density, distribution function, and random generation for convolution of gamma
-//' distributions. The distribution of the convolution of independent Gamma random
-//' variables with different parameters
-//' is \eqn{Y = X_{1} + ... + X_{n}}, where \eqn{X_{i}, i = 1, ..., n},
+//' Density, distribution function, and random generation for convolution
+//' of gamma distributions. Convolution of independent Gamma random
+//' variables is \eqn{Y = X_{1} + ... + X_{n}}, where \eqn{X_{i}, i = 1, ..., n},
 //' are independent Gamma distributions with parameters shapes and rates.
-//' The density function and distribution function can be calculated, according to the
-//' formulas from Moschopoulos, Peter G. (1985).
+//' The exact density function and distribution function can be calculated,
+//' according to the formulas from Moschopoulos, Peter G. (1985).
+//' **We mention that \code{dcoga} and \code{pcoga} are recommended
+//' for \eqn{n >= 3}.**
 //'
 //' @param x Quantiles.
-//' @param n Number of sample.
-//' @param shape Numerical vector of shape parameters of every gamma distributions,
-//' all shape parameters >= 0, at least one shape parameter > 0.
-//' @param rate Numerical vector of rate parameters of every gamma distributions,
-//' all rate parameters > 0.
+//' @param n Number of sample points.
+//' @param shape Numerical vector of shape parameters for each gamma distributions,
+//' all shape parameters should be larger than or equal to 0, with at least one
+//' non-zero.
+//' @param rate Numerical vector of rate parameters for each gamma distributions,
+//' all rate parameters should be larger than 0.
 //'
 //' @references
 //' Moschopoulos, Peter G. "The distribution of the sum of independent
 //' gamma random variables." Annals of the Institute of
 //' Statistical Mathematics 37.1 (1985): 541-544.
+//'
 //' @examples
+//' ## Example 1: Correctness check
 //' set.seed(123)
 //' ## do grid
 //' y <- rcoga(100000, c(3,4,5), c(2,3,4))
@@ -139,6 +143,14 @@ double dcoga_nv(double x,  NumericVector alpha, NumericVector beta) {
 //' ## plot cdf
 //' plot(ecdf(y), col="blue")
 //' lines(grid, cdf, col="red")
+//'
+//' ## Example 2: Show parameter recycling
+//' ## these pairs give us the same results
+//' dcoga(1:5, c(1, 2), c(1, 3, 4, 2, 5))
+//' dcoga(1:5, c(1, 2, 1, 2, 1), c(1, 3, 4, 2, 5))
+//'
+//' pcoga(1:5, c(1, 3, 5, 2, 2), c(3, 5))
+//' pcoga(1:5, c(1, 3, 5, 2, 2), c(3, 5, 3, 5, 3))
 //'
 //' @author Chaoran Hu
 //'

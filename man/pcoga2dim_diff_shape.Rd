@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{pcoga2dim_diff_shape}
 \alias{pcoga2dim_diff_shape}
-\title{Recurrence Identity of Shape Parameter for Distribution Function of coga2dim}
+\title{Recurrence Identity of Shape Parameter for \code{pcoga2dim}}
 \usage{
 pcoga2dim_diff_shape(x, shape1, shape2, rate1, rate2)
 }
@@ -10,19 +10,20 @@ pcoga2dim_diff_shape(x, shape1, shape2, rate1, rate2)
 \item{x}{Quantiles.}
 
 \item{shape1, shape2}{Shape parameters of the first and second gamma
-distributions, all shape parameters >= 0.}
+distributions, both shape parameters should be larger than or equal to 0.}
 
 \item{rate1, rate2}{Rate parameters of the first and second gamma
-distributions, all rate parameters > 0.}
+distributions, both rate parameters should be larger than 0.}
 }
 \description{
 The difference of distribution functions of convolution of two gamma
 distributions between consecutive neighbors of shape parameter. This
-function can return the value of pcoga2dim(x, shape1, shape2, rate1, rate2)
-- pcoga2dim(x, shape1 + 1, shape2, rate1, rate2) with higher efficiency
-(this function is much more faster than call pcoga2dim).
+function evaluate the value of 'pcoga2dim(x, shape1, shape2, rate1, rate2)
+- pcoga2dim(x, shape1 + 1, shape2, rate1, rate2)' with higher efficiency
+(this function is much more faster than call \code{pcoga2dim} two-times).
 }
 \examples{
+## these pairs give us the same results
 pcoga2dim_diff_shape(3,2,4,5,4)
 pcoga2dim(3,2,4,5,4) - pcoga2dim(3,3,4,5,4)
 

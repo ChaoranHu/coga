@@ -3,7 +3,7 @@
 \name{dcoga2dim}
 \alias{dcoga2dim}
 \alias{pcoga2dim}
-\title{Convolution of Two Gamma Distributions.}
+\title{Convolution of Two Gamma Distributions (Exact Method).}
 \usage{
 dcoga2dim(x, shape1, shape2, rate1, rate2)
 
@@ -12,20 +12,23 @@ pcoga2dim(x, shape1, shape2, rate1, rate2)
 \arguments{
 \item{x}{Quantiles.}
 
-\item{shape1, shape2}{Shape parameters of the first and second gamma
-distributions, all shape parameters >= 0, at least one shape parameter > 0.}
+\item{shape1, shape2}{Shape parameters for the first and second gamma
+distributions, both shape parameters should be larger than or equal to 0,
+with at least one non-zero.}
 
-\item{rate1, rate2}{Rate parameters of the first and second gamma
-distributions, all rate parameters > 0.}
+\item{rate1, rate2}{Rate parameters for the first and second gamma
+distributions, both rate parameters should be larger than 0.}
 }
 \description{
-Density, and distribution function of convolution of two gamma
-distributions is a special situation of convolution of gamma
-distributions. Compare to the general situation, the speed of code
-is much faster. The algorithm of these two functions comes from
-Mathai, A.M. (1982).
+Density, and distribution function of convolution of *two* gamma
+distributions. These two functions still give us the exact density and
+distribution function value, but which are much faster than \code{dcoga}
+and \code{pcoga}. **So, we recommend these two functions for two variables
+case.** The algorithm of these two functions comes from Mathai, A.M. (1982).
 }
 \examples{
+## Example 1: Correctness check
+set.seed(123)
 ## do grid
 y <- rcoga(100000, c(3,4), c(2,3))
 grid <- seq(0, 15, length.out=100)
@@ -40,6 +43,14 @@ lines(grid, pdf, col="red")
 ## plot cdf
 plot(ecdf(y), col="blue")
 lines(grid, cdf, col="red")
+
+## Example 2: Comparison with `dcoga` and `pcoga`
+## these pairs give us the same results
+dcoga(1:5, c(1, 2), c(3, 4))
+dcoga2dim(1:5, 1, 2, 3, 4)
+
+pcoga(1:5, c(1, 3), c(3, 5))
+pcoga2dim(1:5, 1, 3, 3, 5)
 
 }
 \references{

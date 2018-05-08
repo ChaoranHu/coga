@@ -1,16 +1,15 @@
 Package: coga
 Title: Convolution of Gamma Distributions
-Version: 0.2.2.9000
-Date: 2018-01-11
+Version: 1.0.0
+Date: 2018-05-08
 Authors@R: c(
     person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
     person("Vladimir", "Pozdnyakov", email = "vladimir.pozdnyakov@uconn.edu", role = "ths"),
     person("Jun", "Yan", email = "jun.yan@uconn.edu", role = "ths"))
-Description: Convolution of gamma distributions in R. The convolution of 
-    gamma distributions is the sum of series of gamma 
-    distributions and all gamma distributions here can have different 
-    parameters. This package can calculate density, distribution function 
-    and do simulation work.
+Description: Evaluation for density and distribution function of convolution of gamma
+    distributions in R. Two related exact methods and one approximate method are
+    implemented with efficient algorithm and C++ code. A quick guide for choosing
+    correct method and usage of this package is given in package vignette.
 Depends: R (>= 3.3.0)
 License: GPL (>= 3.0)
 Encoding: UTF-8

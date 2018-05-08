@@ -26,25 +26,28 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
   return result;
 }
 
-//' Convolution of Two Gamma Distributions.
+//' Convolution of Two Gamma Distributions (Exact Method).
 //'
-//' Density, and distribution function of convolution of two gamma
-//' distributions is a special situation of convolution of gamma
-//' distributions. Compare to the general situation, the speed of code
-//' is much faster. The algorithm of these two functions comes from
-//' Mathai, A.M. (1982).
+//' Density, and distribution function of convolution of *two* gamma
+//' distributions. These two functions still give us the exact density and
+//' distribution function value, but which are much faster than \code{dcoga}
+//' and \code{pcoga}. **So, we recommend these two functions for two variables
+//' case.** The algorithm of these two functions comes from Mathai, A.M. (1982).
 //'
 //' @param x Quantiles.
-//' @param shape1,shape2 Shape parameters of the first and second gamma
-//' distributions, all shape parameters >= 0, at least one shape parameter > 0.
-//' @param rate1,rate2 Rate parameters of the first and second gamma
-//' distributions, all rate parameters > 0.
+//' @param shape1,shape2 Shape parameters for the first and second gamma
+//' distributions, both shape parameters should be larger than or equal to 0,
+//' with at least one non-zero.
+//' @param rate1,rate2 Rate parameters for the first and second gamma
+//' distributions, both rate parameters should be larger than 0.
 //'
 //' @references
 //' Mathai, A.M.: Storage capacity of a dam with gamma type inputs.
 //' Ann. Inst. Statist.Math. 34, 591-597 (1982)
 //'
 //' @examples
+//' ## Example 1: Correctness check
+//' set.seed(123)
 //' ## do grid
 //' y <- rcoga(100000, c(3,4), c(2,3))
 //' grid <- seq(0, 15, length.out=100)
@@ -59,6 +62,14 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
 //' ## plot cdf
 //' plot(ecdf(y), col="blue")
 //' lines(grid, cdf, col="red")
+//'
+//' ## Example 2: Comparison with `dcoga` and `pcoga`
+//' ## these pairs give us the same results
+//' dcoga(1:5, c(1, 2), c(3, 4))
+//' dcoga2dim(1:5, 1, 2, 3, 4)
+//'
+//' pcoga(1:5, c(1, 3), c(3, 5))
+//' pcoga2dim(1:5, 1, 3, 3, 5)
 //'
 //' @author Chaoran Hu
 //'
@@ -148,21 +159,22 @@ NumericVector pcoga2dim(NumericVector x, double shape1, double shape2,
   return out;
 }
 
-//' Recurrence Identity of Shape Parameter for Distribution Function of coga2dim 
+//' Recurrence Identity of Shape Parameter for \code{pcoga2dim}
 //'
 //' The difference of distribution functions of convolution of two gamma
 //' distributions between consecutive neighbors of shape parameter. This
-//' function can return the value of pcoga2dim(x, shape1, shape2, rate1, rate2)
-//' - pcoga2dim(x, shape1 + 1, shape2, rate1, rate2) with higher efficiency
-//' (this function is much more faster than call pcoga2dim).
+//' function evaluate the value of 'pcoga2dim(x, shape1, shape2, rate1, rate2)
+//' - pcoga2dim(x, shape1 + 1, shape2, rate1, rate2)' with higher efficiency
+//' (this function is much more faster than call \code{pcoga2dim} two-times).
 //'
 //' @param x Quantiles.
 //' @param shape1,shape2 Shape parameters of the first and second gamma
-//' distributions, all shape parameters >= 0.
+//' distributions, both shape parameters should be larger than or equal to 0.
 //' @param rate1,rate2 Rate parameters of the first and second gamma
-//' distributions, all rate parameters > 0.
+//' distributions, both rate parameters should be larger than 0.
 //'
 //' @examples
+//' ## these pairs give us the same results
 //' pcoga2dim_diff_shape(3,2,4,5,4)
 //' pcoga2dim(3,2,4,5,4) - pcoga2dim(3,3,4,5,4)
 //'
