@@ -1,6 +1,6 @@
 ## Test enviroments
 
-* local macOS 10.13.2 install, R 3.4.0
+* local macOS 10.13.4 install, R 3.4.0
 
 * win-builder (devel and release)
 
