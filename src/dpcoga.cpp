@@ -157,9 +157,9 @@ NumericVector dcoga(NumericVector x, NumericVector shape, NumericVector rate) {
     }
   }
 
-  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0");
-  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0");
-  if (is_true(all(shape == 0))) stop("at least one shape should be larger than 0");
+  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
+  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0.");
+  if (is_true(all(shape == 0))) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
 
   // transfer from shape rate to alpha beta
   NumericVector alpha = shape;
@@ -231,9 +231,9 @@ NumericVector pcoga(NumericVector x, NumericVector shape, NumericVector rate) {
     }
   }
   
-  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0");
-  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0");
-  if (is_true(all(shape == 0))) stop("at least one shape should be larger than 0");
+  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
+  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0.");
+  if (is_true(all(shape == 0))) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
 
   // transfer from shape rate to alpha beta
   NumericVector alpha = shape;

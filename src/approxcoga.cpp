@@ -165,6 +165,25 @@ double dcoga_approx_nv(double x, NumericVector alpha, NumericVector beta) {
   return result;
 }
 
+// do recycling x to follw y's size
+// the same function as recycling with diff name
+NumericVector recycling2(NumericVector x, NumericVector y) {
+  // recycling x to y
+  int nx = x.size();
+  int ny = y.size();
+  int mx = x.size();
+  while(TRUE) {
+    for(int i = 0; i < nx; ++i) {
+      x.push_back(x[i]);
+      mx = x.size();
+      if (mx == ny) break;
+    }
+    if (mx == ny) break;
+  }
+  return x;
+}
+
+
 
 //' Convolution of Gamma distribuitons with Approximation Method
 //'
@@ -192,9 +211,23 @@ double dcoga_approx_nv(double x, NumericVector alpha, NumericVector beta) {
 NumericVector dcoga_approx(NumericVector x,
 			   NumericVector shape,
 			   NumericVector rate) {
+  // input check
+  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0.");
+  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0, with at least three non-zero.");
+  // handle recycle
+  if (shape.size() != rate.size()) {
+    if (shape.size() < rate.size()) {
+      if (rate.size() % shape.size() != 0) warning("number of rate is not a multiple of shape.");
+      shape = recycling2(shape, rate);
+    } else {
+      if (shape.size() % rate.size() != 0) warning("number of shape is not a multiple of rate.");
+      rate = recycling2(rate, shape);
+    }
+  }
   rate = rate[shape > 0];
   shape = shape[shape > 0];
-  if (shape.size() < 3) stop("only work for three or more variables case");
+  if (shape.size() < 3) stop("all shape should be larger than or equal to 0, with at least three non-zero.");
+  // input check
 
   NumericVector beta = 1 / rate;
   int n = x.size();
@@ -262,10 +295,24 @@ double pcoga_approx_nv(double x, NumericVector alpha, NumericVector beta) {
 NumericVector pcoga_approx(NumericVector x,
 			   NumericVector shape,
 			   NumericVector rate) {
+  // input check
+  if (is_true(any(rate <= 0))) stop("all rate should be larger than 0.");
+  if (is_true(any(shape < 0))) stop("all shape should be larger than or equal to 0, with at least three non-zero.");
+  // handle recycle
+  if (shape.size() != rate.size()) {
+    if (shape.size() < rate.size()) {
+      if (rate.size() % shape.size() != 0) warning("number of rate is not a multiple of shape.");
+      shape = recycling2(shape, rate);
+    } else {
+      if (shape.size() % rate.size() != 0) warning("number of shape is not a multiple of rate.");
+      rate = recycling2(rate, shape);
+    }
+  }
   rate = rate[shape > 0];
   shape = shape[shape > 0];
-  if (shape.size() < 3) stop("only work for three or more variables case");
-
+  if (shape.size() < 3) stop("all shape should be larger than or equal to 0, with at least three non-zero.");
+  // input check
+  
   NumericVector beta = 1 / rate;
   int n = x.size();
   NumericVector result(n);

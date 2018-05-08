@@ -66,9 +66,9 @@ double dcoga2dim_nv(double x, double shape1, double shape2,
 // [[Rcpp::export]]
 NumericVector dcoga2dim(NumericVector x, double shape1, double shape2,
 			double rate1, double rate2) {
-  if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0");
-  if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0");
-  if (shape1 == 0 && shape2 == 0) stop("at least one shape should be larger than 0");
+  if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0.");
+  if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
+  if (shape1 == 0 && shape2 == 0) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
 
   int n = x.size();
   NumericVector out(n);
@@ -136,8 +136,9 @@ double pcoga2dim_nv(double x, double shape1, double shape2,
 // [[Rcpp::export]]
 NumericVector pcoga2dim(NumericVector x, double shape1, double shape2,
 			double rate1, double rate2) {
-  if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0");
-  if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0");
+  if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0.");
+  if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
+  if (shape1 == 0 && shape2 == 0) stop("all shape should be larger than or equal to 0, with at least one non-zero.");
   
   int n = x.size();
   NumericVector out(n);
@@ -193,6 +194,8 @@ double pcoga2dim_diff_shape (double x,
     return pcoga2dim(x, shape1, 0, rate1, rate2) - pcoga2dim(x, shape1 + 1, 0, rate1, rate2);
   }
   */
+  if (rate1 <= 0 || rate2 <= 0) stop("all rate should be larger than 0.");
+  if (shape1 < 0 || shape2 < 0) stop("all shape should be larger than or equal to 0.");
   
   gsl_set_error_handler_off();
 
