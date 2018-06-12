@@ -1,3 +1,10 @@
+# CHANGES IN coga VERSION 1.0.0.9000
+
+## MINOR CHANGES
+
+* Add coga paper into CITATION and README.md.
+
+
 # CHANGES IN coga VERSION 1.0.0
 
 ## MAJOR CHANGES

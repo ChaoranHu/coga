@@ -30,7 +30,7 @@ method. For details, please read the following sections.
 | `dcoga_approx`, `pcoga_approx` | medium | approximate | >=3            | yes                 |
 
 
-# Exact evaluation of convolution of gamma variables
+#1. Exact evaluation of convolution of gamma variables
 
 Let us start from Moschopoulos(1985), which is implemented as the R function `dcoga`
 and `pcoga`. By this two functions, we can calculate density and distribution function
@@ -93,7 +93,7 @@ microbenchmark::microbenchmark(dcoga2dim(1:10, 2, 5, 3, 2),
                                pcoga(1:10, c(2, 5), c(3, 2)))
 ```
 
-# Approximate evaluation of convolution of gamma variables
+#2. Approximate evaluation of convolution of gamma variables
 
 The approximate method is given by Barnabani(2017) and is implemented as `dcoga_approx`
 and `pcoga_approx`, which only give us the approximate result but also give us the
@@ -130,7 +130,7 @@ par(mfrow = c(1, 1))
 ```
 
 
-# Parameter recycling
+#3. Parameter recycling
 
 The parameter recycling means if the input of `shape` and `rate` have different length,
 the function will make up the shorter one to the longer one. For example, these two pairs
@@ -160,6 +160,7 @@ Statist.Math. 34, 591-597 (1982).
 [3] Barnabani, M. (2017). An approxmation to the convolution of gamma distributions. 
 Communications in Statistics - Simulation and Computation 46(1), 331-343.
 
+[4] Hu, C., Pozdnyakov, V., and Yan, J. (2018+) Density and Distribution Evaluation for Convolution of Independent Gamma Variables. <arXiv:1806.04059>
 
 
 
