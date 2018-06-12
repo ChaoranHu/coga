@@ -33,15 +33,11 @@ $(checkLog): $(tar) $(tests)
 .PHONY: newVersion
 newVersion:
 	@read -p "new version number: " NEWVER;\
-	sed 's/^Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' DESCRIPTION >> description_tem;\
-	sed 's/version [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/version '$$NEWVER'/g' inst/CITATION >> inst/citation_tem;\
-	sed 's/Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' README.md >> README_tem;\
-	sed 's/], [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/], '$$NEWVER'/' configure.ac >> configure_tem
+	sed -i 's/^Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' DESCRIPTION;\
+	sed -i 's/version [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/version '$$NEWVER'/g' inst/CITATION;\
+	sed -i 's/Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' README.md;\
+	sed -i 's/], [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/], '$$NEWVER'/' configure.ac
 
-	@mv description_tem DESCRIPTION
-	@mv inst/citation_tem inst/CITATION
-	@mv README_tem README.md
-	@mv configure_tem configure.ac
 	@rm configure
 	@autoconf
 	@rm -rf autom4te.cache/
@@ -51,12 +47,9 @@ newVersion:
 .PHONY: updateTime
 updateTime:
 	@echo "updating date"
-	@sed 's/Date: [0-9]\{4\}-[0-9]\{1,2\}-[0-9]\{1,2\}/Date: $(dt)/' DESCRIPTION >> description_tem
-	@mv description_tem DESCRIPTION
-	@sed 's/Copyright (C) 2017-[0-9]\{4\}/Copyright (C) 2017-$(yr)/' COPYRIGHT >> copyright_tem
-	@mv copyright_tem COPYRIGHT
-	@sed 's/20[0-9]\{2\}/$(yr)/g' inst/CITATION >> inst/citation_tem
-	@mv inst/citation_tem inst/CITATION
+	@sed -i 's/Date: [0-9]\{4\}-[0-9]\{1,2\}-[0-9]\{1,2\}/Date: $(dt)/' DESCRIPTION
+	@sed -i 's/Copyright (C) 2017-[0-9]\{4\}/Copyright (C) 2017-$(yr)/' COPYRIGHT
+	@sed -i '3,16 s/20[0-9]\{2\}/$(yr)/' inst/CITATION
 
 
 .PHONY: clean
