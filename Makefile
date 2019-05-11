@@ -33,10 +33,10 @@ $(checkLog): $(tar) $(tests)
 .PHONY: newVersion
 newVersion:
 	@read -p "new version number: " NEWVER;\
-	gsed -i 's/^Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' DESCRIPTION;\
-	gsed -i 's/version [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/version '$$NEWVER'/g' inst/CITATION;\
-	gsed -i 's/Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' README.md;\
-	gsed -i 's/], [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/], '$$NEWVER'/' configure.ac
+	sed -i 's/^Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' DESCRIPTION;\
+	sed -i 's/version [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/version '$$NEWVER'/g' inst/CITATION;\
+	sed -i 's/Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' README.md;\
+	sed -i 's/], [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/], '$$NEWVER'/' configure.ac
 
 	@rm configure
 	@autoconf
@@ -47,9 +47,9 @@ newVersion:
 .PHONY: updateTime
 updateTime:
 	@echo "updating date"
-	@gsed -i 's/Date: [0-9]\{4\}-[0-9]\{1,2\}-[0-9]\{1,2\}/Date: $(dt)/' DESCRIPTION
-	@gsed -i 's/Copyright (C) 2017-[0-9]\{4\}/Copyright (C) 2017-$(yr)/' COPYRIGHT
-	@gsed -i '3,16 s/20[0-9]\{2\}/$(yr)/' inst/CITATION
+	@sed -i 's/Date: [0-9]\{4\}-[0-9]\{1,2\}-[0-9]\{1,2\}/Date: $(dt)/' DESCRIPTION
+	@sed -i 's/Copyright (C) 2017-[0-9]\{4\}/Copyright (C) 2017-$(yr)/' COPYRIGHT
+	@sed -i '3,16 s/20[0-9]\{2\}/$(yr)/' inst/CITATION
 
 
 .PHONY: clean
