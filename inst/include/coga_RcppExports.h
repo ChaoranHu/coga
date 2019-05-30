@@ -487,6 +487,48 @@ namespace coga {
         return Rcpp::as<NumericVector >(rcpp_result_gen);
     }
 
+    inline double salvo_integrand(NumericVector u, double y, NumericVector shape, NumericVector scale) {
+        typedef SEXP(*Ptr_salvo_integrand)(SEXP,SEXP,SEXP,SEXP);
+        static Ptr_salvo_integrand p_salvo_integrand = NULL;
+        if (p_salvo_integrand == NULL) {
+            validateSignature("double(*salvo_integrand)(NumericVector,double,NumericVector,NumericVector)");
+            p_salvo_integrand = (Ptr_salvo_integrand)R_GetCCallable("coga", "_coga_salvo_integrand");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_salvo_integrand(Shield<SEXP>(Rcpp::wrap(u)), Shield<SEXP>(Rcpp::wrap(y)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(scale)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
+            throw Rcpp::LongjumpException(rcpp_result_gen);
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
+    inline double salvo_multi_comp(double y, NumericVector shape, NumericVector scale) {
+        typedef SEXP(*Ptr_salvo_multi_comp)(SEXP,SEXP,SEXP);
+        static Ptr_salvo_multi_comp p_salvo_multi_comp = NULL;
+        if (p_salvo_multi_comp == NULL) {
+            validateSignature("double(*salvo_multi_comp)(double,NumericVector,NumericVector)");
+            p_salvo_multi_comp = (Ptr_salvo_multi_comp)R_GetCCallable("coga", "_coga_salvo_multi_comp");
+        }
+        RObject rcpp_result_gen;
+        {
+            RNGScope RCPP_rngScope_gen;
+            rcpp_result_gen = p_salvo_multi_comp(Shield<SEXP>(Rcpp::wrap(y)), Shield<SEXP>(Rcpp::wrap(shape)), Shield<SEXP>(Rcpp::wrap(scale)));
+        }
+        if (rcpp_result_gen.inherits("interrupted-error"))
+            throw Rcpp::internal::InterruptedException();
+        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
+            throw Rcpp::LongjumpException(rcpp_result_gen);
+        if (rcpp_result_gen.inherits("try-error"))
+            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
+        return Rcpp::as<double >(rcpp_result_gen);
+    }
+
 }
 
 #endif // RCPP_coga_RCPPEXPORTS_H_GEN_

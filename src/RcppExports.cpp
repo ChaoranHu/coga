@@ -806,6 +806,79 @@ RcppExport SEXP _coga_pcoga(SEXP xSEXP, SEXP shapeSEXP, SEXP rateSEXP) {
     UNPROTECT(1);
     return rcpp_result_gen;
 }
+// salvo_integrand
+double salvo_integrand(NumericVector u, double y, NumericVector shape, NumericVector scale);
+static SEXP _coga_salvo_integrand_try(SEXP uSEXP, SEXP ySEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type u(uSEXP);
+    Rcpp::traits::input_parameter< double >::type y(ySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type shape(shapeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type scale(scaleSEXP);
+    rcpp_result_gen = Rcpp::wrap(salvo_integrand(u, y, shape, scale));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_salvo_integrand(SEXP uSEXP, SEXP ySEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_salvo_integrand_try(uSEXP, ySEXP, shapeSEXP, scaleSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// salvo_multi_comp
+double salvo_multi_comp(double y, NumericVector shape, NumericVector scale);
+static SEXP _coga_salvo_multi_comp_try(SEXP ySEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< double >::type y(ySEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type shape(shapeSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type scale(scaleSEXP);
+    rcpp_result_gen = Rcpp::wrap(salvo_multi_comp(y, shape, scale));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _coga_salvo_multi_comp(SEXP ySEXP, SEXP shapeSEXP, SEXP scaleSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_coga_salvo_multi_comp_try(ySEXP, shapeSEXP, scaleSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 
 // validate (ensure exported C++ functions exist before calling them)
 static int _coga_RcppExport_validate(const char* sig) { 
@@ -833,6 +906,8 @@ static int _coga_RcppExport_validate(const char* sig) {
         signatures.insert("double(*pcoga2dim_diff_shape)(double,double,double,double,double)");
         signatures.insert("NumericVector(*dcoga)(NumericVector,NumericVector,NumericVector)");
         signatures.insert("NumericVector(*pcoga)(NumericVector,NumericVector,NumericVector)");
+        signatures.insert("double(*salvo_integrand)(NumericVector,double,NumericVector,NumericVector)");
+        signatures.insert("double(*salvo_multi_comp)(double,NumericVector,NumericVector)");
     }
     return signatures.find(sig) != signatures.end();
 }
@@ -861,6 +936,8 @@ RcppExport SEXP _coga_RcppExport_registerCCallable() {
     R_RegisterCCallable("coga", "_coga_pcoga2dim_diff_shape", (DL_FUNC)_coga_pcoga2dim_diff_shape_try);
     R_RegisterCCallable("coga", "_coga_dcoga", (DL_FUNC)_coga_dcoga_try);
     R_RegisterCCallable("coga", "_coga_pcoga", (DL_FUNC)_coga_pcoga_try);
+    R_RegisterCCallable("coga", "_coga_salvo_integrand", (DL_FUNC)_coga_salvo_integrand_try);
+    R_RegisterCCallable("coga", "_coga_salvo_multi_comp", (DL_FUNC)_coga_salvo_multi_comp_try);
     R_RegisterCCallable("coga", "_coga_RcppExport_validate", (DL_FUNC)_coga_RcppExport_validate);
     return R_NilValue;
 }
@@ -888,6 +965,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_coga_pcoga2dim_diff_shape", (DL_FUNC) &_coga_pcoga2dim_diff_shape, 5},
     {"_coga_dcoga", (DL_FUNC) &_coga_dcoga, 3},
     {"_coga_pcoga", (DL_FUNC) &_coga_pcoga, 3},
+    {"_coga_salvo_integrand", (DL_FUNC) &_coga_salvo_integrand, 4},
+    {"_coga_salvo_multi_comp", (DL_FUNC) &_coga_salvo_multi_comp, 3},
     {"_coga_RcppExport_registerCCallable", (DL_FUNC) &_coga_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}
 };

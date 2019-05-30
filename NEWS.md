@@ -1,5 +1,9 @@
 # CHANGES IN coga VERSION 1.0.0.9000
 
+## MAJOR CHANGES
+
+* Add function `coga:::dcoga_salvo` for research purpose (Di Salvo, 2008).
+
 ## MINOR CHANGES
 
 * Add coga paper into CITATION and README.md.

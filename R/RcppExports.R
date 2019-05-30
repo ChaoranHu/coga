@@ -276,6 +276,14 @@ pcoga <- function(x, shape, rate) {
     .Call('_coga_pcoga', PACKAGE = 'coga', x, shape, rate)
 }
 
+salvo_integrand <- function(u, y, shape, scale) {
+    .Call('_coga_salvo_integrand', PACKAGE = 'coga', u, y, shape, scale)
+}
+
+salvo_multi_comp <- function(y, shape, scale) {
+    .Call('_coga_salvo_multi_comp', PACKAGE = 'coga', y, shape, scale)
+}
+
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
     .Call('_coga_RcppExport_registerCCallable', PACKAGE = 'coga')
