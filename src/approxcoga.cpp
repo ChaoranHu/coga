@@ -47,8 +47,9 @@ double get_mu3(NumericVector alpha, NumericVector beta) {
 
 // [[Rcpp::export]]
 double get_A(double mu, double mu2, double mu3) {
-  double result = pow(mu * mu3 - 3 * pow(mu2, 2), 2) - 2;
+  double result = pow(mu * mu3 - 3 * pow(mu2, 2), 2);
   result /= mu * pow(mu2, 3);
+  result -= 2;
   return result;
 }
 
