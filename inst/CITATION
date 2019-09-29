@@ -22,8 +22,8 @@ citEntry(entry = "Article",
                              as.person("Jun Yan")),
          journal = "Computational Statistics",
          year = "2019",
-         doi = "https://doi.org/10.1007/s00180-019-00924-9",
+         doi = "10.1007/s00180-019-00924-9",
          textVersion =
-             paste("Hu, C., Pozdnyakov, V., and Yan, J. (2019). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics. (https://doi.org/10.1007/s00180-019-00924-9)")
+             paste("Hu, C., Pozdnyakov, V., and Yan, J. (2019). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics. (doi:10.1007/s00180-019-00924-9)")
 )
 

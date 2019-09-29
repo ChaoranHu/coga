@@ -11,16 +11,14 @@
 
 ```
 * checking CRAN incoming feasibility ... NOTE
-
 Maintainer: ‘Chaoran Hu <chaoran.hu@uconn.edu>’
 
 Found the following (possibly) invalid DOIs:
-
-  DOI: https://doi.org/10.1007/s00180-019-00924-9
-  
-    From: inst/CITATION
-    
-    Message: Invalid DOI
+  DOI: 10.1007/s00180-019-00924-9
+    From: DESCRIPTION
+          inst/CITATION
+    Status: Not Found
+    Message: 404
 ```
 
 Actually, this paper we adds to the citation file is a to-appear paper, which
