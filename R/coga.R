@@ -11,9 +11,9 @@
 ##'
 ##' @author
 ##' \itemize{
+##'   \item *maintainer, author* Chaoran Hu \email{chaoran.hu@@uconn.edu}
 ##'   \item *advisor* Jun Yan \email{jun.yan@@uconn.edu}
 ##'   \item *advisor* Vladimir Pozdnyakov \email{vladimir.pozdnyakov@@uconn.edu}
-##'   \item *maintainer, author* Chaoran Hu \email{chaoran.hu@@uconn.edu}
 ##' }
 ##' 
 ##' @docType package

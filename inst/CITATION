@@ -5,13 +5,13 @@ citEntry(entry = "Manual",
          Author = personList(as.person("Chaoran Hu"),
                              as.person("Vladimir Pozdnyakov"),
                              as.person("Jun Yan")),
-         Note = "R package version 1.0.0.9000",
+         Note = "R package version 1.1.0",
          Year =	"2019",
          Url = "https://github.com/ChaoranHu/coga",
          
          textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2019). coga:",
                              "Convolution of Gamma Distributions.",
-                             "R package version 1.0.0.9000",
+                             "R package version 1.1.0",
                              "https://github.com/ChaoranHu/coga")
 )
 
@@ -20,15 +20,10 @@ citEntry(entry = "Article",
          author = personList(as.person("Chaoran Hu"),
                              as.person("Vladimir Pozdnyakov"),
                              as.person("Jun Yan")),
-         journal = "ArXiv e-prints",
-         archivePrefix = "arXiv",
-         eprint = "1806.04059",
-         primaryClass = "stat.CO",
-         year = "2018",
-         month = "jun",
-         adsurl = "http://adsabs.harvard.edu/abs/2018arXiv180604059H",
-         adsnote = "Provided by the SAO/NASA Astrophysics Data System",
+         journal = "Computational Statistics",
+         year = "2019",
+         doi = "https://doi.org/10.1007/s00180-019-00924-9",
          textVersion =
-             paste("Hu, C., Pozdnyakov, V., and Yan, J. (2018+) Density and Distribution Evaluation for Convolution of Independent Gamma Variables. <arXiv:1806.04059>")
+             paste("Hu, C., Pozdnyakov, V., and Yan, J. (2019). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics. (https://doi.org/10.1007/s00180-019-00924-9)")
 )
 

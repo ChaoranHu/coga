@@ -15,7 +15,7 @@ and do simulation work for convolution of gamma variables. Two related exact met
 implemented with efficient algorithm and `C++` code. A quick guide for this package is
 given as package vignette.
 
-* Version: 1.0.0.9000
+* Version: 1.1.0
 
 ### How do I get set up? ###
 
@@ -52,4 +52,4 @@ Chaoran Hu, <chaoran.hu@uconn.edu>
 
 [3] Barnabani, M. (2017). An approxmation to the convolution of gamma distributions. Communications in Statistics - Simulation and Computation 46(1), 331-343.
 
-[4] Hu, C., Pozdnyakov, V., and Yan, J. (2018+) Density and Distribution Evaluation for Convolution of Independent Gamma Variables. <arXiv:1806.04059>
+[4] Hu, C., Pozdnyakov, V., and Yan, J. (2019). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics. (https://doi.org/10.1007/s00180-019-00924-9)

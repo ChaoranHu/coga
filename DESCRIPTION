@@ -1,7 +1,7 @@
 Package: coga
 Title: Convolution of Gamma Distributions
-Version: 1.0.0.9000
-Date: 2019-08-25
+Version: 1.1.0
+Date: 2019-09-29
 Authors@R: c(
     person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
     person("Vladimir", "Pozdnyakov", email = "vladimir.pozdnyakov@uconn.edu", role = "ths"),
