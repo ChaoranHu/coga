@@ -8,6 +8,7 @@ r:
 
 apt_packages:
   - libgsl0-dev
+  - devscripts
 
 r_packages:
   - devtools
