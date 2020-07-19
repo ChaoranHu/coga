@@ -5,13 +5,13 @@ citEntry(entry = "Manual",
          Author = personList(as.person("Chaoran Hu"),
                              as.person("Vladimir Pozdnyakov"),
                              as.person("Jun Yan")),
-         Note = "R package version 1.1.0",
-         Year =	"2019",
+         Note = "R package version 1.1.0.9000",
+         Year =	"2020",
          Url = "https://github.com/ChaoranHu/coga",
          
-         textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2019). coga:",
+         textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2020). coga:",
                              "Convolution of Gamma Distributions.",
-                             "R package version 1.1.0",
+                             "R package version 1.1.0.9000",
                              "https://github.com/ChaoranHu/coga")
 )
 

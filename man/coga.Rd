@@ -3,7 +3,6 @@
 \docType{package}
 \name{coga}
 \alias{coga}
-\alias{coga-package}
 \title{coga: Convolution of independent Gamma Distributions}
 \description{
 Evaluation for density and distribution function of convolution of gamma
