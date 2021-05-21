@@ -1,5 +1,5 @@
 
-AC_INIT([coga], 1.1.0.9000)
+AC_INIT([coga],[1.1.0.9000])
 
 ## Use gsl-config to find arguments for compiler and linker flags
 ##
@@ -23,4 +23,5 @@ AC_SUBST(GSL_CFLAGS)
 AC_SUBST(GSL_LIBS)
 ##AC_SUBST(RCPP_LDFLAGS)
 
-AC_OUTPUT(src/Makevars)
+AC_CONFIG_FILES([src/Makevars])
+AC_OUTPUT
