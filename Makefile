@@ -36,7 +36,7 @@ newVersion:
 	sed -i 's/^Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' DESCRIPTION;\
 	sed -i 's/version [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/version '$$NEWVER'/g' inst/CITATION;\
 	sed -i 's/Version: [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/Version: '$$NEWVER'/' README.md;\
-	sed -i 's/], [0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/], '$$NEWVER'/' configure.ac
+	sed -i 's/[0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/'$$NEWVER'/' configure.ac
 
 	@rm configure
 	@autoconf

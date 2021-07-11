@@ -1,6 +1,7 @@
 # README #
 
-[![Build Status](https://travis-ci.org/ChaoranHu/coga.svg?branch=master)](https://travis-ci.org/ChaoranHu/coga) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/coga)](https://cran.r-project.org/package=coga)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/coga)](https://cran.r-project.org/package=coga)
+[![Build Status](https://www.travis-ci.com/ChaoranHu/coga.svg?branch=master)](https://www.travis-ci.com/ChaoranHu/coga)
 
 This README would normally document whatever steps are necessary to get this application up
 and running.
@@ -52,4 +53,4 @@ Chaoran Hu, <chaoran.hu@uconn.edu>
 
 [3] Barnabani, M. (2017). An approxmation to the convolution of gamma distributions. Communications in Statistics - Simulation and Computation 46(1), 331-343.
 
-[4] Hu, C., Pozdnyakov, V., and Yan, J. (2019). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics. (https://doi.org/10.1007/s00180-019-00924-9)
+[4] Hu, C., Pozdnyakov, V., and Yan, J. (2020). Density and Distribution Evaluation for Convolution of Independent Gamma Variables. Computational Statistics 35, 327-342.

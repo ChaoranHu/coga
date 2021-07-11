@@ -1,7 +1,7 @@
 Package: coga
 Title: Convolution of Gamma Distributions
 Version: 1.1.0.9000
-Date: 2021-05-21
+Date: 2021-07-11
 Authors@R: c(
     person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
     person("Vladimir", "Pozdnyakov", email = "vladimir.pozdnyakov@uconn.edu", role = "ths"),
@@ -13,7 +13,8 @@ Description: Evaluation for density and distribution function of convolution of 
     detail of methods used in this package, we refer the user to
     Mathai(1982)<doi:10.1007/BF02481056>,
     Moschopoulos(1984)<doi:10.1007/BF02481123>,
-    Hu et al.(2019)<doi:10.1007/s00180-019-00924-9>.
+    Barnabani(2017)<doi:10.1080/03610918.2014.963612>,
+    Hu et al.(2020)<doi:10.1007/s00180-019-00924-9>.
 Depends: R (>= 3.3.0)
 License: GPL (>= 3.0)
 Encoding: UTF-8
