@@ -1,7 +1,7 @@
 # README #
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/coga)](https://cran.r-project.org/package=coga)
-[![Build Status](https://www.travis-ci.com/ChaoranHu/coga.svg?branch=master)](https://www.travis-ci.com/ChaoranHu/coga)
+[![Build Status](https://app.travis-ci.com/ChaoranHu/coga.svg?branch=master)](https://app.travis-ci.com/ChaoranHu/coga)
 
 This README would normally document whatever steps are necessary to get this application up
 and running.
