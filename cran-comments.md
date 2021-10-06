@@ -9,9 +9,18 @@
 
 ## R CMD check results
 
-No note, warning, error.
+No warning, error.
 
+There was 1 note.
 
+```
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Chaoran Hu <chaoran.hu@uconn.edu>'
+
+Possibly misspelled words in DESCRIPTION:
+  Barnabani (16:5)
+```
+This is a Italian name.
 
 ## Downstream dependencies
 
