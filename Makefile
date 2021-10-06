@@ -39,7 +39,8 @@ newVersion:
 	sed -i 's/[0-9]\.[0-9]\.[0-9]\.*[0-9]*[0-9]*[0-9]*[0-9]*/'$$NEWVER'/' configure.ac
 
 	@rm configure
-	@autoconf
+	@autoupdate
+	@autoreconf --warnings=obsolete
 	@rm -rf autom4te.cache/
 	@echo "NEWS.md and cran-comment should be modified manually."
 

@@ -1,8 +1,10 @@
-# CHANGES IN coga VERSION 1.1.0.9000
+# CHANGES IN coga VERSION 1.1.1
 
 ## MINOR CHANGES
 
 * Updated citations in this pacakge.
+
+* Modified autoconf by CRAN's suggestions.
 
 # CHANGES IN coga VERSION 1.1.0
 
