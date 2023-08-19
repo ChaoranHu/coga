@@ -1,3 +1,10 @@
+# CHANGES IN coga VERSION 1.2.0
+
+## MINOR CHANGES
+
+* Provided appropriate PKGNAME-package \alias as per "Documenting packages" in R-exts.
+
+
 # CHANGES IN coga VERSION 1.1.1
 
 ## MINOR CHANGES
@@ -5,6 +12,7 @@
 * Updated citations in this pacakge.
 
 * Modified autoconf by CRAN's suggestions.
+
 
 # CHANGES IN coga VERSION 1.1.0
 

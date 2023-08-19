@@ -16,7 +16,7 @@ and do simulation work for convolution of gamma variables. Two related exact met
 implemented with efficient algorithm and `C++` code. A quick guide for this package is
 given as package vignette.
 
-* Version: 1.1.1
+* Version: 1.2.0
 
 ### How do I get set up? ###
 

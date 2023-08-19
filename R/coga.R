@@ -18,6 +18,7 @@
 ##' 
 ##' @docType package
 ##' @name coga
+##' @aliases coga-package
 ##' @useDynLib coga
 ##' @importFrom Rcpp sourceCpp
 ##' @importFrom Rcpp evalCpp

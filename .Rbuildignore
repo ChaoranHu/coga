@@ -17,3 +17,4 @@
 ^cran-comments.md$
 ^README\.md$
 ^CRAN-RELEASE$
+^\.github$
