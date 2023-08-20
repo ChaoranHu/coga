@@ -19,4 +19,4 @@ There are currently no downstream dependencies for this package.
 
 ## Newer Version of R package coga
 
-The R package coga 1.1.1 has already in CRAN. This is the next version of coga. The version number of this package is 1.2.0.
+The R package coga 1.2.0 has already in CRAN. This is the next version of coga. The version number of this package is 1.2.0.9000.
