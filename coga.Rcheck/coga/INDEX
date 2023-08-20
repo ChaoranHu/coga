@@ -1,0 +1,10 @@
+coga                    coga: Convolution of independent Gamma
+                        Distributions
+dcoga                   Convolution of Gamma Distributions (Exact
+                        Method).
+dcoga2dim               Convolution of Two Gamma Distributions (Exact
+                        Method).
+dcoga_approx            Convolution of Gamma distribuitons
+                        (Approximation Method)
+pcoga2dim_diff_shape    Recurrence Identity of Shape Parameter for
+                        'pcoga2dim'

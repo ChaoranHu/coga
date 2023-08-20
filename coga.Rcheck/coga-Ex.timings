@@ -1,0 +1,5 @@
+name	user	system	elapsed
+dcoga	0.216	0.025	0.241	
+dcoga2dim	0.188	0.010	0.198	
+dcoga_approx	0.199	0.010	0.208	
+pcoga2dim_diff_shape	0.000	0.000	0.001	

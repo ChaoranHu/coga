@@ -1,0 +1,34 @@
+Package: coga
+Title: Convolution of Gamma Distributions
+Version: 1.2.0
+Date: 2023-08-19
+Authors@R: c(
+    person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
+    person("Vladimir", "Pozdnyakov", email = "vladimir.pozdnyakov@uconn.edu", role = "ths"),
+    person("Jun", "Yan", email = "jun.yan@uconn.edu", role = "ths"))
+Description: Evaluation for density and distribution function of convolution of gamma
+    distributions in R. Two related exact methods and one approximate method are
+    implemented with efficient algorithm and C++ code. A quick guide for choosing
+    correct method and usage of this package is given in package vignette. For the
+    detail of methods used in this package, we refer the user to
+    Mathai(1982)<doi:10.1007/BF02481056>,
+    Moschopoulos(1984)<doi:10.1007/BF02481123>,
+    Barnabani(2017)<doi:10.1080/03610918.2014.963612>,
+    Hu et al.(2020)<doi:10.1007/s00180-019-00924-9>.
+Depends: R (>= 3.3.0)
+License: GPL (>= 3.0)
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Suggests: testthat, R.rsp
+Imports: stats, Rcpp, cubature
+LinkingTo: Rcpp, RcppGSL
+VignetteBuilder: R.rsp
+BugReports: https://github.com/ChaoranHu/coga/issues
+URL: https://github.com/ChaoranHu/coga
+NeedsCompilation: yes
+SystemRequirements: GNU GSL
+Packaged: 2023-08-20 00:00:32 UTC; chaoranhu
+Author: Chaoran Hu [aut, cre],
+  Vladimir Pozdnyakov [ths],
+  Jun Yan [ths]
+Maintainer: Chaoran Hu <chaoran.hu@uconn.edu>
