@@ -5,13 +5,13 @@ bibentry(bibtype = "Manual",
          author = c(person("Chaoran", "Hu"),
                              person("Vladimir", "Pozdnyakov"),
                              person("Jun", "Yan")),
-         note = "R package version 1.2.1",
-         year =	"2023",
+         note = "R package version 1.2.2",
+         year =	"2024",
          url = "https://github.com/ChaoranHu/coga",
          
-         textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2023). coga:",
+         textVersion = paste("Hu, C., Pozdnyakov, V., Yan, J. (2024). coga:",
                              "Convolution of Gamma Distributions.",
-                             "R package version 1.2.1",
+                             "R package version 1.2.2",
                              "https://github.com/ChaoranHu/coga")
 )
 

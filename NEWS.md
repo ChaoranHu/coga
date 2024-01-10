@@ -1,3 +1,9 @@
+# CHANGES IN coga VERSION 1.2.2
+
+## MINOR CHANGES
+
+* Updated maintainer email to huchaoran.stat@gmail.com
+
 # CHANGES IN coga VERSION 1.2.1
 
 ## MINOR CHANGES

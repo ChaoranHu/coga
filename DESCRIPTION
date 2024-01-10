@@ -1,9 +1,9 @@
 Package: coga
 Title: Convolution of Gamma Distributions
-Version: 1.2.1
-Date: 2023-11-29
+Version: 1.2.2
+Date: 2024-01-10
 Authors@R: c(
-    person("Chaoran", "Hu", email = "chaoran.hu@uconn.edu", role = c("aut", "cre")),
+    person("Chaoran", "Hu", email = "huchaoran.stat@gmail.com", role = c("aut", "cre")),
     person("Vladimir", "Pozdnyakov", email = "vladimir.pozdnyakov@uconn.edu", role = "ths"),
     person("Jun", "Yan", email = "jun.yan@uconn.edu", role = "ths"))
 Description: Evaluation for density and distribution function of convolution of gamma
