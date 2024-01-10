@@ -1,5 +1,5 @@
 
-AC_INIT([coga],[1.2.2])
+AC_INIT([coga],[1.2.2.9000])
 
 ## Use gsl-config to find arguments for compiler and linker flags
 ##

@@ -1,3 +1,9 @@
+# CHANGES IN coga VERSION 1.2.2.9000
+
+## MINOR CHANGES
+
+* Updated email address in R/coga.
+
 # CHANGES IN coga VERSION 1.2.2
 
 ## MINOR CHANGES
