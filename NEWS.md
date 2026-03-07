@@ -1,8 +1,10 @@
-# CHANGES IN coga VERSION 1.2.2.9000
+# CHANGES IN coga VERSION 1.2.3
 
 ## MINOR CHANGES
 
 * Updated email address in R/coga.
+
+* Rerun compileAttributes() with Rcpp >= 1.1.1 to guard Rf_error calls.
 
 # CHANGES IN coga VERSION 1.2.2
 
