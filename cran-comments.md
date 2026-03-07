@@ -4,7 +4,7 @@
 
 * win-builder (devel and release)
 
-* ubuntu 22.04.3 LTS (on GitHub), (devel, release, and oldrel)
+* ubuntu 24.04.3 LTS (on GitHub), (devel, release, and oldrel)
 
 
 ## R CMD check results
